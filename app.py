@@ -26,4 +26,5 @@ def database_query(sql_query):
 def index():
     sql_select="SELECT * FROM "
     database_query(sql_select)
+    
     return template("index.tpl")
