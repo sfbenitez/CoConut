@@ -38,6 +38,5 @@ def database_select(sql_query):
 def index():
     sql_select="SELECT * FROM USERS"
     campos=database_select(sql_select)
-    # ver como enviar campos del select al template
 
     return template("index.tpl",  user_user=campos[0], user_name=campos[1])
