@@ -10,7 +10,8 @@ postgresql-contrib-9.6 ssl-cert sysstat
 ## Permitir el inicio de manera local para los nuevos usuarios, sustituyendo "peer" por "md5":
 postgres@kenny:~$ nano /etc/postgresql/9.6/main/pg_hba.conf
 
-local   all             all                                     md5
+local   all             all                                              md5
+host    all             all              0.0.0.0/0                       md5
 
 root@kenny:/home/vagrant# systemctl restart postgresql
 
