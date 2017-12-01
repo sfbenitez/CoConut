@@ -3,7 +3,7 @@ import os
 from bottle import route,run,get,template,request, static_file, response, redirect, app
 import psycopg2
 
-conn = psycopg2.connect("dbname= user= password= host= port= ")
+conn = psycopg2.connect("dbname=db_backup user=admin password=admin host=172.22.2.205")
 
 def database_query(sql_query):
 	cur = None
@@ -26,5 +26,5 @@ def database_query(sql_query):
 def index():
     sql_select="SELECT * FROM "
     database_query(sql_select)
-    
+    # ver como enviar campos del select al template
     return template("index.tpl")
