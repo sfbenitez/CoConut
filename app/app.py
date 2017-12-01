@@ -36,6 +36,8 @@ def database_select(sql_query):
 		cur = connect.cursor()
 		cur.execute(sql_query)
 		resultado = cur.fetchone()
+	except:
+		return false
 	finally:
 		if cur is not None:
 			cur.close()
@@ -56,15 +58,18 @@ def dashboard():
 	session['name'] = user
 	try:
 		# DB conenction
-		connect = psycopg2.connect(connstring)
+		sql_select="SELECT default_name, count(backup_date) FROM hosts h, backups b, defaultnames d where h.host_name = d.default_id and host_ip = backup_host and backup_user = "+user+" group by default_name;"
+		campos=database_select(sql_select)
+		# Saving connstring
 		response.set_cookie('concoockie', connstring)
 	except:
 		return template("logout.tpl")
-	return template("dashboard.tpl")
+	return template("dashboard.tpl", maquina=campos[0], numbackups=campos[1], user = user)
 
 @route('/profile', method='POST')
 def profile(session):
-	sql_select="SELECT * FROM USERS"
+	user_name = session.get('name'):
+	sql_select="SELECT * FROM USERS WHERE user_user="+user_name
     campos=database_select(sql_select)
 	return template("profile.tpl",  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
 
@@ -79,4 +84,5 @@ def profile(session):
 def server_static(filename):
 	return static_file(filename, root='/static/')
 
-run(host = '0.0.0.0', port = 8080)
+debug(True)
+run(app=app, host = '0.0.0.0', port = 8080)
