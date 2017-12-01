@@ -41,4 +41,9 @@ def index():
 
     return template("index.tpl",  user_user=campos[0], user_name=campos[1])
 
+# Static files
+@route('/static/<filename>')
+	def server_static(filename):
+		return static_file(filename, root='/static/')
+
 run(host = '0.0.0.0', port = 8080)
