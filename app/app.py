@@ -3,7 +3,7 @@ import os
 from bottle import route,run,get,template,request, static_file, response, redirect, app
 import psycopg2
 
-conn = psycopg2.connect("dbname=db_backup user=admin password=admin host=172.22.2.205")
+conn = psycopg2.connect("dbname=db_backup user=admin password=admin host=172.22.200.110")
 
 #def database_insert(sql_query):
 #	cur = None
