@@ -40,3 +40,5 @@ def index():
     campos=database_select(sql_select)
 
     return template("index.tpl",  user_user=campos[0], user_name=campos[1])
+
+run(host = '0.0.0.0', port = 8080)
