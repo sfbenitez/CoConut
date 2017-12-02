@@ -88,7 +88,7 @@ def profile(user):
 # Static files
 @route('/static/<filepath:path>')
 def server_static(filepath):
-	return static_file(filepath, root='/static/')
+	return static_file(filepath, root='/static')
 
 debug(True)
 run(app=app, host = '0.0.0.0', port = 8080)
