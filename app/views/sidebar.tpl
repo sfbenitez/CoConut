@@ -5,7 +5,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li> <a class="waves-effect waves-dark" href="/dashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
-                <li> <a class="waves-effect waves-dark" href="/profile" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a></li>
+                <li> <a class="waves-effect waves-dark" href="/profile/{{user_user}}" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a></li>
                 <li> <a class="waves-effect waves-dark" href="/record" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Table</span></a></li>
                 <!--<li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a></li>-->
                 <!--<li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Map</span></a></li>-->
