@@ -55,7 +55,11 @@ def dashboard():
 	user = request.forms.get('user')
  	password = request.forms.get('password')
 	# Connection string
+<<<<<<< HEAD
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password='+password %(user)
+=======
+	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
+>>>>>>> 17bff6bab514a516425ed1562f460be00aaf13ab
 	response.set_cookie('concoockie', connstring)
 	# Iniciating session
 	#try:
