@@ -29,8 +29,8 @@ app.install(plugin)
 
 def database_select(sql_query):
 	cur = None
-	connstring = request.get_cookie('concoockie')
-	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
+	#connstring = request.get_cookie('concoockie')
+	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
 	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
 	connect = psycopg2.connect(connstring)
 	print sql_query
@@ -66,7 +66,7 @@ def dashboard():
 
 	#except:
 	#	return template('login.tpl')
-	return template('index.tpl', numbackups=campos[0], maquina=campos[1], user=user)
+	return template('index.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
 
 @route('/profile/:user', method='GET')
 def profile(user):
