@@ -4,11 +4,6 @@ CREATE TABLE ROLES (
   constraint pk_roles primary key (role_id)
 );
 
-CREATE TABLE DEFAULTNAMES (
-  default_id          numeric(5),
-  default_name        varchar(20),
-  constraint pk_defaultnames primary key (default_id)
-);
 
 CREATE TABLE SOS (
   so_id               numeric(5),
@@ -30,10 +25,9 @@ CREATE TABLE USERS (
 
 CREATE TABLE HOSTS (
   host_ip             varchar(15),
-  host_name           numeric(5),
+  host_name           varchar(20),
   host_so             numeric(5),
   constraint pk_hosts primary key (host_ip),
-  constraint fk_defaultnames foreign key (host_name) references defaultnames (default_id),
   constraint fk_sos foreign key (host_so) references sos (so_id)
 );
 
