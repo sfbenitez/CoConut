@@ -3,14 +3,11 @@ CREATE TABLE ROLES (
   role_name           varchar(15),
   constraint pk_roles primary key (role_id)
 );
-
-
 CREATE TABLE SOS (
   so_id               numeric(5),
   so_name             varchar(20),
   constraint pk_sos primary key (so_id)
 );
-
 CREATE TABLE USERS (
   user_user           varchar(20),
   user_name           varchar(30),
@@ -22,15 +19,13 @@ CREATE TABLE USERS (
   constraint fk_roles foreign key (user_role) references roles (role_id),
   constraint username check (user_name is not null)
 );
-
 CREATE TABLE HOSTS (
   host_ip             varchar(15),
-  host_name           varchar(20),
+  host_name           varchar(30),
   host_so             numeric(5),
   constraint pk_hosts primary key (host_ip),
   constraint fk_sos foreign key (host_so) references sos (so_id)
 );
-
 CREATE TABLE BACKUPS (
   backup_user         varchar(20),
   backup_host         varchar(15),
