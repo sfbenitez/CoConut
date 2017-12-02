@@ -28,12 +28,12 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon --><b>
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                            <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img src="static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         </span>
                     </a>
                 </div>
@@ -64,7 +64,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-dark" href="#"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link waves-effect waves-dark" href="#"><img src="static/assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
                         </li>
                     </ul>
                 </div>
@@ -191,35 +191,35 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td style="width:50px;"><span class="round"><img src="../assets/images/users/1.jpg" alt="user" width="50"></span></td>
+                                                <td style="width:50px;"><span class="round"><img src="static/assets/images/users/1.jpg" alt="user" width="50"></span></td>
                                                 <td>
                                                     <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
                                                 <td>Elite Admin</td>
                                                 <td>Low</td>
                                             </tr>
                                             <tr class="active">
-                                                <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50"></span></td>
+                                                <td><span class="round"><img src="static/assets/images/users/2.jpg" alt="user" width="50"></span></td>
                                                 <td>
                                                     <h6>Andrew</h6><small class="text-muted">Project Manager</small></td>
                                                 <td>Real Homes</td>
                                                 <td>Medium</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="round round-success"><img src="../assets/images/users/3.jpg" alt="user" width="50"></span></td>
+                                                <td><span class="round round-success"><img src="static/assets/images/users/3.jpg" alt="user" width="50"></span></td>
                                                 <td>
                                                     <h6>Bhavesh patel</h6><small class="text-muted">Developer</small></td>
                                                 <td>MedicalPro Theme</td>
                                                 <td>High</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="round round-primary"><img src="../assets/images/users/4.jpg" alt="user" width="50"></span></td>
+                                                <td><span class="round round-primary"><img src="static/assets/images/users/4.jpg" alt="user" width="50"></span></td>
                                                 <td>
                                                     <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small></td>
                                                 <td>Elite Admin</td>
                                                 <td>Low</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="round round-warning"><img src="../assets/images/users/5.jpg" alt="user" width="50"></span></td>
+                                                <td><span class="round round-warning"><img src="static/assets/images/users/5.jpg" alt="user" width="50"></span></td>
                                                 <td>
                                                     <h6>Micheal Doe</h6><small class="text-muted">Content Writer</small></td>
                                                 <td>Helping Hands</td>
@@ -242,13 +242,13 @@
                                     <div class="message-widget contact-widget">
                                         <!-- Message -->
                                         <a href="#">
-                                            <div class="user-img"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                            <div class="user-img"> <img src="static/assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">info@wrappixel.com</span></div>
                                         </a>
                                         <!-- Message -->
                                         <a href="#">
-                                            <div class="user-img"> <img src="../assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
+                                            <div class="user-img"> <img src="static/assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Sonu Nigam</h5> <span class="mail-desc">pamela1987@gmail.com</span></div>
                                         </a>
@@ -260,19 +260,19 @@
                                         </a>
                                         <!-- Message -->
                                         <a href="#">
-                                            <div class="user-img"> <img src="../assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                            <div class="user-img"> <img src="static/assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">kat@gmail.com</span></div>
                                         </a>
                                         <!-- Message -->
                                         <a href="#">
-                                            <div class="user-img"> <img src="../assets/images/users/5.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                            <div class="user-img"> <img src="static/assets/images/users/5.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Andrew</h5> <span class="mail-desc">and@gmail.com</span></div>
                                         </a>
                                         <!-- Message -->
                                         <a href="#">
-                                            <div class="user-img"> <img src="../assets/images/users/6.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                            <div class="user-img"> <img src="static/assets/images/users/6.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Jonathan Jones</h5> <span class="mail-desc">jj@gmail.com</span></div>
                                         </a>
@@ -288,7 +288,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-xlg-3">
                         <div class="card">
-                            <img class="card-img-top img-responsive" src="../assets/images/big/img1.jpg" alt="Card image cap">
+                            <img class="card-img-top img-responsive" src="static/assets/images/big/img1.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h3 class="font-normal">Business development of rules 2017</h3>
                                 <span class="label label-info label-rounded">Technology</span>
@@ -345,28 +345,28 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="static/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap popper Core JavaScript -->
-    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="static/js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
-    <script src="js/waves.js"></script>
+    <script src="static/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
+    <script src="static/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
+    <script src="static/js/custom.min.js"></script>
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
-    <script src="../assets/plugins/chartist-js/dist/chartist.min.js"></script>
-    <script src="../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="static/assets/plugins/chartist-js/dist/chartist.min.js"></script>
+    <script src="static/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
     <!--c3 JavaScript -->
-    <script src="../assets/plugins/d3/d3.min.js"></script>
-    <script src="../assets/plugins/c3-master/c3.min.js"></script>
+    <script src="static/assets/plugins/d3/d3.min.js"></script>
+    <script src="static/assets/plugins/c3-master/c3.min.js"></script>
     <!-- Chart JS -->
-    <script src="js/dashboard.js"></script>
+    <script src="static/js/dashboard.js"></script>
 </body>
 
 </html>
