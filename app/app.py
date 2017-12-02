@@ -45,6 +45,10 @@ def database_select(sql_query):
 			cur.close()
 	return resultado
 
+@route('/test')
+def index():
+    return template('index.tpl')
+
 @route('/')
 def index():
 	return template('login.tpl')
@@ -66,7 +70,7 @@ def dashboard():
 
 	#except:
 	#	return template('login.tpl')
-	return template('index.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
+	return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
 
 @route('/profile/:user', method='GET')
 def profile(user):
