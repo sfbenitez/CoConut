@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="static/assets/images/favicon.png">
-    <title>{{ tittle }}</title>
+    <title>{{ title }}</title>
     <!-- Bootstrap Core CSS -->
     <link href="static/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- This page CSS -->
