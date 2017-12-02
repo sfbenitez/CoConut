@@ -53,7 +53,7 @@ def dashboard():
 	user = request.forms.get('user')
  	password = request.forms.get('password')
 	# Connection string
-	connstring = "dbname=db_backup host=192.168.1.132 user='%' password='%'" %(user, password)
+	connstring = "dbname=db_backup host=172.22.200.110 user='%' password='%'" %(user, password)
 	# Iniciating session
 	#try:
 		# DB conenction
@@ -63,7 +63,7 @@ def dashboard():
 	response.set_cookie("concoockie", connstring)
 	#except:
 	#	return template("login.tpl")
-	return template("dashboard.tpl", maquina=campos[0], numbackups=campos[1], user=user)
+	return template("index.tpl", maquina=campos[0], numbackups=campos[1], user=user)
 
 @route('/profile', method='POST')
 def profile(user):
