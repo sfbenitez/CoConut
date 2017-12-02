@@ -8,16 +8,22 @@ postgresql-contrib-9.6 ssl-cert sysstat
 
 
 ## Permitir el inicio de manera local para los nuevos usuarios, sustituyendo "peer" por "md5":
-postgres@kenny:~$ nano /etc/postgresql/9.6/main/pg_hba.conf
+postgres@server:~$ nano /etc/postgresql/9.6/main/pg_hba.conf
 
 local   all             all                                              md5
 host    all             all              0.0.0.0/0                       md5
 
-root@kenny:/home/vagrant# systemctl restart postgresql
+# Habilitar conexiones remotas
+postgres@server:~$ nano /etc/postgresql/9.6/main/postgresql.conf
+
+listen_addresses = '*'
+
+
+root@server:/home/vagrant# systemctl restart postgresql
 
 ## Iniciar sesion con el superuser
-root@kenny:/home/vagrant# su - postgres
-postgres@kenny:~$ psql
+root@server:/home/vagrant# su - postgres
+postgres@server:~$ psql
 
 ## Crear un usuario especifico para la nueva base de datos
 CREATE ROLE admin PASSWORD 'admin' CREATEDB CREATEROLE INHERIT LOGIN;
@@ -27,4 +33,4 @@ CREATE DATABASE  db_backup;
 ALTER DATABASE db_backup OWNER TO admin;
 
 ## Iniciar sesion con el usuaro admin y crear las tablas:
-postgres@kenny:~$ psql -U admin db_backup
+postgres@server:~$ psql -U admin db_backup
