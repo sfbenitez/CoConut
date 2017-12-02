@@ -1,11 +1,11 @@
 
 import os
-from bottle import route,run,get,template,request, static_file, response, redirect, app
+from bottle import route,run,get,template,request, static_file, response, redirect, app, debug
 import bottle_session
 import psycopg2
 
 # Inicialize the sessions plugin
-app = bottle.app()
+app = app()
 plugin = bottle_session.SessionPlugin(cookie_lifetime=600)
 app.install(plugin)
 
@@ -29,7 +29,7 @@ app.install(plugin)
 
 def database_select(sql_query):
 	cur = None
-	connstring = request.get_cookie('concookie')
+	connstring = request.get_cookie("concookie")
 	connect = psycopg2.connect(connstring)
 	print sql_query
 	try:
@@ -53,26 +53,23 @@ def dashboard():
 	user = request.forms.get('user')
  	password = request.forms.get('password')
 	# Connection string
-	connstring = "dbname=db_backup host=172.22.2.205 user="+str(user)+" password="+str(password)
+	connstring = "dbname=db_backup host=192.168.1.132 user='%' password='%'" %(user, password)
 	# Iniciating session
-	session['name'] = user
-	try:
+	#try:
 		# DB conenction
-		sql_select="SELECT default_name, count(backup_date) FROM hosts h, backups b, defaultnames d where h.host_name = d.default_id and host_ip = backup_host and backup_user = "+user+" group by default_name;"
-		campos=database_select(sql_select)
+	sql_select="SELECT default_name, count(backup_date) FROM hosts h, backups b, defaultnames d where h.host_name = d.default_id and host_ip = backup_host group by default_name"
+	campos=database_select(sql_select)
 		# Saving connstring
-		response.set_cookie('concoockie', connstring)
-	except:
-		return template("logout.tpl")
-	return template("dashboard.tpl", maquina=campos[0], numbackups=campos[1], user = user)
+	response.set_cookie("concoockie", connstring)
+	#except:
+	#	return template("login.tpl")
+	return template("dashboard.tpl", maquina=campos[0], numbackups=campos[1], user=user)
 
 @route('/profile', method='POST')
-def profile(session):
-	user_name = session.get('name'):
-	sql_select="SELECT * FROM USERS WHERE user_user="+user_name
-    campos=database_select(sql_select)
+def profile(user):
+	sql_select="SELECT * FROM USERS WHERE user_user="+user
+	campos=database_select(sql_select)
 	return template("profile.tpl",  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
-
 
 #	sql_select="SELECT * FROM USERS"
 #    campos=database_select(sql_select)
