@@ -18,7 +18,6 @@ postgres@server:~$ nano /etc/postgresql/9.6/main/postgresql.conf
 
 listen_addresses = '*'
 
-
 root@server:/home/vagrant# systemctl restart postgresql
 
 ## Iniciar sesion con el superuser
