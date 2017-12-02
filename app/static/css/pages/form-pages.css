@@ -19,7 +19,7 @@ File: scss
 Custom-select
 ******************/
 .custom-select {
-  background: url(../../assets/images/custom-select.png) right 0.75rem center no-repeat; }
+  background: url(static/assets/images/custom-select.png) right 0.75rem center no-repeat; }
 
 /*******************
 textarea
@@ -122,7 +122,7 @@ Form summernote
 .label {
   display: inline-block; }
 
-/*============================================================== 
+/*==============================================================
 Form addons page
 ============================================================== */
 /*Bootstrap select*/
@@ -154,7 +154,7 @@ Form addons page
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 33px; }
 
-/*============================================================== 
+/*==============================================================
 Form Material page
  ============================================================== */
 /*Material inputs*/
@@ -201,7 +201,7 @@ Form Material page
     border-bottom: 1px solid #398bf7; }
 
 /*******************
-File Upload 
+File Upload
 ******************/
 .fileupload {
   overflow: hidden;

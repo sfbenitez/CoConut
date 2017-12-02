@@ -15,8 +15,8 @@ File: scss
 /*Light colors*/
 /*Normal Color*/
 /*Extra Variable*/
-/*============================================================== 
- For all pages 
+/*==============================================================
+ For all pages
  ============================================================== */
 #main-wrapper {
   width: 100%;
@@ -1537,7 +1537,7 @@ Buttons
   color: #ffffff;
   background-color: #171515; }
 
-/*============================================================== 
+/*==============================================================
  Buttons page
  ============================================================== */
 .button-group .btn {
@@ -1578,7 +1578,7 @@ File: scss
 Custom-select
 ******************/
 .custom-select {
-  background: url(../../assets/images/custom-select.png) right 0.75rem center no-repeat; }
+  background: url(static/assets/images/custom-select.png) right 0.75rem center no-repeat; }
 
 /*******************
 textarea
@@ -1688,7 +1688,7 @@ Form summernote
 .label {
   display: inline-block; }
 
-/*============================================================== 
+/*==============================================================
 Form addons page
 ============================================================== */
 /*Bootstrap select*/
@@ -1732,7 +1732,7 @@ Form addons page
   color: #ffffff;
   border-color: #398bf7; }
 
-/*============================================================== 
+/*==============================================================
 Form Material page
  ============================================================== */
 /*Material inputs*/
@@ -1782,13 +1782,13 @@ Form Material page
     border-bottom: 1px solid #398bf7; }
 
 /*******************
-Form validation error 
+Form validation error
 ******************/
 .error .help-block {
   color: #fb3a3a; }
 
 /*******************
-File Upload 
+File Upload
 ******************/
 .fileupload {
   overflow: hidden;
@@ -1805,7 +1805,7 @@ File Upload
     top: 0; }
 
 /*******************
-This is for the checkbox radio button and switch 
+This is for the checkbox radio button and switch
 ******************/
 /* Radio Buttons
    ========================================================================== */
