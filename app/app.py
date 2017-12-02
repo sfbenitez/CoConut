@@ -66,7 +66,7 @@ def dashboard():
 	response.set_cookie('concoockie', connstring)
 	#except:
 	#	return template('login.tpl')
-	return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user=user)
+	return template('index.tpl', numbackups=campos[0], maquina=campos[1], user=user)
 
 @route('/profile/:user', method='GET')
 def profile(user):
