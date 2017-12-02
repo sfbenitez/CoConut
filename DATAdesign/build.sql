@@ -17,7 +17,7 @@ CREATE TABLE USERS (
   user_urlimage       varchar(50),
   constraint pk_users primary key (user_user),
   constraint fk_roles foreign key (user_role) references roles (role_id),
-  constraint username check (user_name is not null)
+  constraint username check (user_name is not null),
   constraint initcapname check (user_name=initcap(user_name))
 );
 CREATE TABLE HOSTS (
