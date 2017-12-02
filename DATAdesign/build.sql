@@ -17,7 +17,8 @@ CREATE TABLE USERS (
   user_urlimage       varchar(50),
   constraint pk_users primary key (user_user),
   constraint fk_roles foreign key (user_role) references roles (role_id),
-  constraint username check (user_name is not null)
+  constraint username check (user_name is not null),
+  constraint initcapname check (user_name=initcap(user_name))
 );
 CREATE TABLE HOSTS (
   host_ip             varchar(15),
@@ -31,10 +32,10 @@ CREATE TABLE BACKUPS (
   backup_host         varchar(15),
   backup_label        varchar(40),
   backup_description  varchar(80),
-  backup_action       varchar(15) default 'automatica',
+  backup_action       varchar(15) default 'Automatica',
   backup_date         timestamp default now(), -- current_timestamp
   constraint pk_backups primary key (backup_date),
   constraint fk_users foreign key (backup_user) references users (user_user),
   constraint fk_hosts foreign key (backup_host) references hosts (host_ip),
-  constraint fix_action check (backup_action in ('automatica','manual'))
+  constraint fix_action check (backup_action in ('Automatica','Manual'))
 );
