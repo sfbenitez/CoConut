@@ -45,12 +45,13 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Dashboard</h3>
+                        <h3 class="text-themecolor">{{ user_name }}</h3>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <h3 class="text-themecolor pull-right">{{user_name}}</h3>
+                        <a href="#" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Refrescar</a>
                     </div>
                 </div>
+                <!--
                 <div class="row">
                     <div class="col-lg-9 col-md-12">
                         <div class="card">
@@ -75,6 +76,7 @@
                     <!-- ============================================================== -->
                     <!-- visit charts-->
                     <!-- ============================================================== -->
+                    <!--
                     <div class="col-lg-3 col-md-12">
                         <div class="card">
                             <div class="card-body">
@@ -94,6 +96,7 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <!-- ============================================================== -->
                 <!-- Projects of the month -->
                 <!-- ============================================================== -->
