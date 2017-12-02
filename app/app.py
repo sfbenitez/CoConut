@@ -52,18 +52,18 @@ def index():
 @route('/dashboard', method='POST')
 def dashboard():
 	# Request variables
-	user = str(request.forms.get('user'))
- 	password = str(request.forms.get('password'))
+	user = request.forms.get('user')
+ 	password = request.forms.get('password')
 	# Connection string
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
+	# Saving connstring
 	response.set_cookie('concoockie', connstring)
 	# Iniciating session
 	#try:
 		# DB conenction
 	sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
 	campos=database_select(sql_select)
-		# Saving connstring
-	response.set_cookie('concoockie', connstring)
+
 	#except:
 	#	return template('login.tpl')
 	return template('index.tpl', numbackups=campos[0], maquina=campos[1], user=user)
