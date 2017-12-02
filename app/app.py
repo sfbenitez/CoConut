@@ -61,16 +61,18 @@ def dashboard():
 	# Connection string
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
 	# Saving connstring
-	response.set_cookie('concoockie', connstring)
+	#response.set_cookie('concoockie', connstring)
 	# Iniciating session
 	#try:
 		# DB conenction
-	sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
+	#sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
+	sql_select = "select * from users;"
 	campos=database_select(sql_select)
 
 	#except:
 	#	return template('login.tpl')
-	return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
+	#return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
+	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], tittle = "Prueba")
 
 @route('/profile/:user', method='GET')
 def profile(user):
@@ -84,9 +86,9 @@ def profile(user):
 #    return template('index.tpl',  user_user=campos[0], user_name=campos[1])
 
 # Static files
-@route('/static/<filename>')
-def server_static(filename):
-	return static_file(filename, root='/static/')
+@route('/static/<filepath:path>')
+def server_static(filepath):
+	return static_file(filepath, root='/static/')
 
 debug(True)
 run(app=app, host = '0.0.0.0', port = 8080)
