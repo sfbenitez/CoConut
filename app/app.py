@@ -45,10 +45,6 @@ def database_select(sql_query):
 			cur.close()
 	return resultado
 
-@route('/test')
-def index():
-    return template('index.tpl')
-
 @route('/')
 def index():
 	return template('login.tpl')
