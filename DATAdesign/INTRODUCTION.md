@@ -1,7 +1,9 @@
 ## Instalación PostgreSQL testBACKUAPP ##
 
-> apt-update
-> apt install postgresql-9.6
+~~~
+apt-update
+apt install postgresql-9.6
+~~~
 
 ##### Paquetes adicionales:
 
@@ -42,11 +44,20 @@ postgres@server:~$ psql
 ~~~
 
 ### Crear un usuario especifico para la nueva base de datos
-CREATE ROLE admin PASSWORD 'admin' CREATEDB CREATEROLE INHERIT LOGIN;
 
-## Crear una nueva base de DATOS
+~~~
+CREATE ROLE admin PASSWORD 'admin' CREATEDB CREATEROLE INHERIT LOGIN;
+~~~
+
+### Crear una nueva base de DATOS
+
+~~~
 CREATE DATABASE  db_backup;
 ALTER DATABASE db_backup OWNER TO admin;
+~~~
 
-## Iniciar sesion con el usuaro admin y crear las tablas:
+### Iniciar sesion con el usuaro admin y crear las tablas:
+
+~~~
 postgres@server:~$ psql -U admin db_backup
+~~~
