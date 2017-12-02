@@ -117,7 +117,7 @@
                         <h3 class="text-themecolor">Dashboard</h3>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <h3 class="text-themecolor">{{user_name}}</h3>
+                        <h3 class="text-themecolor pull-right">{{user_name}}</h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
