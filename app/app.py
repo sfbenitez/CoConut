@@ -29,7 +29,9 @@ app.install(plugin)
 
 def database_select(sql_query):
 	cur = None
-	connstring = request.get_cookie("concookie")
+	connstring = request.get_cookie('concoockie')
+	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
+	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
 	connect = psycopg2.connect(connstring)
 	print sql_query
 	try:
@@ -45,7 +47,7 @@ def database_select(sql_query):
 
 @route('/')
 def index():
-	return template("login.tpl")
+	return template('login.tpl')
 
 @route('/dashboard', method='POST')
 def dashboard():
@@ -53,28 +55,29 @@ def dashboard():
 	user = request.forms.get('user')
  	password = request.forms.get('password')
 	# Connection string
-	connstring = "dbname=db_backup host=192.168.1.132 user='%' password='%'" %(user, password)
+	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password='+password %(user)
+	response.set_cookie('concoockie', connstring)
 	# Iniciating session
 	#try:
 		# DB conenction
-	sql_select="SELECT default_name, count(backup_date) FROM hosts h, backups b, defaultnames d where h.host_name = d.default_id and host_ip = backup_host group by default_name"
+	sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
 	campos=database_select(sql_select)
 		# Saving connstring
-	response.set_cookie("concoockie", connstring)
+	response.set_cookie('concoockie', connstring)
 	#except:
-	#	return template("login.tpl")
-	return template("dashboard.tpl", maquina=campos[0], numbackups=campos[1], user=user)
+	#	return template('login.tpl')
+	return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user=user)
 
-@route('/profile', method='POST')
+@route('/profile/:user', method='GET')
 def profile(user):
-	sql_select="SELECT * FROM USERS WHERE user_user="+user
+	sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(user)
 	campos=database_select(sql_select)
-	return template("profile.tpl",  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
+	return template('profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
 
-#	sql_select="SELECT * FROM USERS"
+#	sql_select='SELECT * FROM USERS'
 #    campos=database_select(sql_select)
 
-#    return template("index.tpl",  user_user=campos[0], user_name=campos[1])
+#    return template('index.tpl',  user_user=campos[0], user_name=campos[1])
 
 # Static files
 @route('/static/<filename>')
