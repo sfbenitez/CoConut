@@ -87,4 +87,4 @@ def server_static(filepath):
 	return static_file(filepath, root='static')
 
 debug(True)
-run(app=app, host = '0.0.0.0', port = 8080)
+run(app=app, host = '0.0.0.0', port = 8080, reloader=True)
