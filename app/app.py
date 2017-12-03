@@ -54,7 +54,7 @@ def dashboard():
 	# Request variables
 	user = request.forms.get('user')
  	password = request.forms.get('password')
-	ip = request.environ.get('REMOTE_ADDR')
+	#ip = request.environ.get('REMOTE_ADDR')
 	# Connection string
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
 	# Saving connstring
@@ -69,7 +69,7 @@ def dashboard():
 	#except:
 	#	return template('login.tpl')
 	#return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
-	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], tittle = "Prueba", ip = ip)
+	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], tittle = "Prueba")
 
 @route('/profile/:user', method='GET')
 def profile(user):
