@@ -118,7 +118,7 @@
                                     <h6 class="card-subtitle">{{user_name}}</h6>
                                     <div class="row text-center justify-content-md-center">
                                         <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-docs"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-drawer"></i> <font class="font-medium">54</font></a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-drawar"></i> <font class="font-medium">54</font></a></div>
                                     </div>
                                 </center>
                             </div>
@@ -133,13 +133,13 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder={{user_name}} class="form-control form-control-line">
+                                            <input type="text" placeholder={{user_name}} class="form-control form-control-line" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder={{user_email}} class="form-control form-control-line" name="example-email" id="example-email">
+                                            <input type="email" placeholder={{user_email}} class="form-control form-control-line" name="example-email" id="example-email" readonly>
                                         </div>
                                     </div>
                                     <!--
@@ -153,13 +153,13 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Birthday</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder={{user_date}} class="form-control form-control-line">
+                                            <input type="text" placeholder={{user_date}} class="form-control form-control-line" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Rol</label>
                                             <div class="col-md-12">
-                                              <input type="text" placeholder="Alumno" class="form-control form-control-line">
+                                              <input type="text" placeholder="Alumno" class="form-control form-control-line" readonly>
                                             </div>
                                     </div>
                                     <!--
