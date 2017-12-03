@@ -83,7 +83,7 @@ def profile(user):
 #    return template('index.tpl',  user_user=campos[0], user_name=campos[1])
 @route('/backups/:user', method='GET')
 def backups(user):
-	sql_select="SELECT * FROM BACKUPS WHERE user_user='%s'" %(user)
+	sql_select="SELECT * FROM BACKUPS WHERE backup_user='%s'" %(user)
 	campos=database_select(sql_select)
 	return template('backus.tpl', backups=campos)
 
