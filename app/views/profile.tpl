@@ -1,29 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Admin Pro Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
+% include('header.tpl')
 
 <body class="fix-header card-no-border fix-sidebar">
     <!-- ============================================================== -->
@@ -32,7 +10,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Admin Pro</p>
+            <p class="loader__label">Backu APP</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -98,28 +76,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Table</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Map</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">404</span></a></li>
-                    </ul>
-                    <div class="text-center m-t-30">
-                        <a href="https://wrappixel.com/templates/adminpro/" class="btn waves-effect waves-light btn-info hidden-md-down"> Upgrade to Pro</a>
-                    </div>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </aside>
+        % include('sidebar.tpl')
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -138,9 +95,11 @@
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">Profile</h3>
                     </div>
+                    <!--
                     <div class="col-md-7 align-self-center">
                         <a href="https://wrappixel.com/templates/adminpro/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
+                    -->
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -155,11 +114,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"> <img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
-                                    <h4 class="card-title m-t-10">Hanna Gover</h4>
-                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                    <h4 class="card-title m-t-10">{{user_user}}</h4>
+                                    <h6 class="card-subtitle">{{user_name}}</h6>
                                     <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-docs"></i> <font class="font-medium">254</font></a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-drawer"></i> <font class="font-medium">54</font></a></div>
                                     </div>
                                 </center>
                             </div>
@@ -174,33 +133,46 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Full Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                            <input type="text" placeholder={{user_name}} class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-12">Email</label>
                                         <div class="col-md-12">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                            <input type="email" placeholder={{user_email}} class="form-control form-control-line" name="example-email" id="example-email">
                                         </div>
                                     </div>
+                                    <!--
                                     <div class="form-group">
                                         <label class="col-md-12">Password</label>
                                         <div class="col-md-12">
                                             <input type="password" value="password" class="form-control form-control-line">
                                         </div>
                                     </div>
+                                    -->
                                     <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
+                                        <label class="col-md-12">Birthday</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                            <input type="text" placeholder={{user_date}} class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
+                                        <label class="col-md-12">Rol</label>
+                                        % if {{user_role}} == 1:
+                                            <div class="col-md-12">
+                                              <input type="text" placeholder="Profesor" class="form-control form-control-line">
+                                            </div>
+                                        %elif {{user_role}} == 2:
+                                            <div class="col-md-12">
+                                              <input type="text" placeholder="Alumno" class="form-control form-control-line">
+                                            </div>
+                                        %else:
+                                            <div class="col-md-12">
+                                              <input type="text" placeholder="Desconocido" class="form-control form-control-line">
+                                            </div>
+                                        %end
                                     </div>
+                                    <!--
                                     <div class="form-group">
                                         <label class="col-sm-12">Select Country</label>
                                         <div class="col-sm-12">
@@ -213,6 +185,7 @@
                                             </select>
                                         </div>
                                     </div>
+                                    -->
                                     <div class="form-group">
                                         <div class="col-sm-12">
                                             <button class="btn btn-success">Update Profile</button>
@@ -235,9 +208,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer">
-                © 2017 Admin Pro by wrappixel.com
-            </footer>
+            % include('footer.tpl')
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -252,18 +223,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
+    % include('jquery.tpl')
 </body>
 
 </html>
