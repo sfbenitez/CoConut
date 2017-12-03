@@ -54,7 +54,7 @@ def dashboard():
 	# Request variables
 	user = request.forms.get('user')
  	password = request.forms.get('password')
-	ip = request['REMOTE_ADDR']
+	ip = request.environ.get('REMOTE_ADDR')
 	# Connection string
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
 	# Saving connstring
