@@ -69,7 +69,7 @@ def dashboard():
 	#except:
 	#	return template('login.tpl')
 	#return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
-	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], tittle = "Prueba")
+	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=campos[5])
 
 @route('/profile/:user', method='GET')
 def profile(user):

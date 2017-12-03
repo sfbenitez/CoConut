@@ -119,7 +119,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td style="width:50px;"><span class="round"><img src="static/assets/images/users/1.jpg" alt="user" width="50"></span></td>
+                                                <td style="width:50px;"><span class="round"><img src={{user_urlimage}} alt="user" width="50"></span></td>
                                                 <td>
                                                     <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
                                                 <td>Elite Admin</td>
