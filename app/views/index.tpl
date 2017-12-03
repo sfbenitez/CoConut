@@ -45,7 +45,7 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">{{ user_name }}</h3>
+                        <h3 class="text-themecolor">{{ user_name }}: {{ ip }}</h3>
                     </div>
                     <div class="col-md-7 align-self-center">
                         <a href="#" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Refrescar</a>
