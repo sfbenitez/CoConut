@@ -85,7 +85,7 @@ def profile(user):
 def backups(user):
 	sql_select="SELECT * FROM BACKUPS WHERE user_user='%s'" %(user)
 	campos=database_select(sql_select)
-	return template('views/backus.tpl', backups=campos)
+	return template('backus.tpl', backups=campos)
 
 # Static files
 @route('/static/<filepath:path>')
@@ -93,4 +93,4 @@ def server_static(filepath):
 	return static_file(filepath, root='static')
 
 debug(True)
-run(app=app, host = '0.0.0.0', port = 8080, reloader=True)
+run(app=app, host = '0.0.0.0', port = 8080)
