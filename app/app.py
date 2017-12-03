@@ -3,6 +3,7 @@ import os
 from bottle import route,run,get,template,request, static_file, response, redirect, app, debug
 import bottle_session
 import psycopg2
+from functions import selectall,database_select
 
 # Inicialize the sessions plugin
 app = app()
@@ -26,24 +27,6 @@ app.install(plugin)
 #		if cur is not None:
 #			cur.close()#
 #    return cur.statusmessage
-
-def database_select(sql_query):
-	cur = None
-	#connstring = request.get_cookie('concoockie')
-	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
-	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
-	connect = psycopg2.connect(connstring)
-	print sql_query
-	try:
-		cur = connect.cursor()
-		cur.execute(sql_query)
-		resultado = cur.fetchone()
-	except:
-		return false
-	finally:
-		if cur is not None:
-			cur.close()
-	return resultado
 
 @route('/')
 def index():
@@ -84,8 +67,8 @@ def profile(user):
 @route('/backups/:user', method='GET')
 def backups(user):
 	sql_select="SELECT * FROM BACKUPS WHERE backup_user='%s'" %(user)
-	campos=database_select(sql_select)
-	return template('backups.tpl', backups=campos)
+	campos=selectall(sql_select)
+	return template('views/backups.tpl', backups=campos,user_user=campos[0][0])
 
 # Static files
 @route('/static/<filepath:path>')
