@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-% include('header.tpl')
+% include('header.tpl', title='Profile')
 
 <body class="fix-header card-no-border fix-sidebar">
     <!-- ============================================================== -->
