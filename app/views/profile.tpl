@@ -158,11 +158,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Rol</label>
-                                        % if {{user_role}} == 1:
+                                        % if {{user_role}} == "1":
                                             <div class="col-md-12">
                                               <input type="text" placeholder="Profesor" class="form-control form-control-line">
                                             </div>
-                                        %elif {{user_role}} == 2:
+                                        %elif {{user_role}} == "2":
                                             <div class="col-md-12">
                                               <input type="text" placeholder="Alumno" class="form-control form-control-line">
                                             </div>
