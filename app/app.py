@@ -66,9 +66,10 @@ def profile(user):
 #    return template('index.tpl',  user_user=campos[0], user_name=campos[1])
 @route('/backups/:user', method='GET')
 def backups(user):
-	sql_select="SELECT * FROM BACKUPS WHERE backup_user='%s'" %(user)
+	sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(user)
 	campos=selectall(sql_select)
 	return template('views/backups.tpl', backups=campos,user_user=campos[0][0])
+
 
 # Static files
 @route('/static/<filepath:path>')
