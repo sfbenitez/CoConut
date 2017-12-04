@@ -18,6 +18,7 @@
     <link href="../static/assets/plugins/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/custom.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="../static/css/pages/dashboard.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
