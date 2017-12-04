@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">A&ntilde;adir host</button>
+                                            <button class="btn btn-success">A&ntilde;adir Backup</button>
                                         </div>
                                     </div>
                                 </form>
