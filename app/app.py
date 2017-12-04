@@ -88,7 +88,7 @@ def backups(user):
 	return template('views/backups.tpl', backups=campos,user_user=campos[0][0])
 
 @route('/newbackup')
-def newbackup(user):
+def newbackup():
 	return template('views/newcopy.tpl')
 
 # Static files
