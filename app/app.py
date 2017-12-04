@@ -89,7 +89,7 @@ def backups(user):
 
 @route('/newbackup')
 def newbackup():
-	return template('views/newcopy.tpl')
+	return template('views/newcopy.tpl',user_user="carlos.sanchez")
 
 # Static files
 @route('/static/<filepath:path>')
