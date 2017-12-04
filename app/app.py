@@ -35,15 +35,20 @@ app = SessionMiddleware(app(), session_opts)
 @route('/')
 def index():
 	# Request variables
-#	user = request.forms.get('user')
-#	password = request.forms.get('password')
-#	constring='dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
-#	try:
-#		conectado=psycopg2.connect(connstring)
-#		sesion.set("user",user)
-#	except:#
+	user = request.forms.get('user')
+	password = request.forms.get('password')
+	sql_query = "SELECT USER_USER FROM USERS WHERE USER_USER = '%s'" %(user)
+	try:
+		test_connection(sql_query, user, password)
+		sesion.set("user",user)
+		redirect('/dashboard')
+	except:
+		return template('views/logout.tpl')
+
+
+
     	#return template('login.tpl')
-	return template('views/login.tpl')
+#	return template('views/login.tpl')
 
 
 @route('/dashboard', method='POST')
