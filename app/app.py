@@ -4,6 +4,7 @@ from bottle import route,run,get,template,request, static_file, response, redire
 import bottle_session
 import psycopg2
 import functions
+import urllib, hashlib
 from beaker.middleware import SessionMiddleware
 
 session_opts = {
@@ -76,7 +77,14 @@ def profile():
  v_password = functions.get('s_password')
  sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(v_user)
  campos=functions.database_select(sql_select, v_user, v_password)
- return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
+ # test image gravatar
+ email = campos[2]
+ default = "default.jpg"
+ size = 512
+ gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
+ gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+
+ return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=gravatar_url)
 
 
 #	sql_select='SELECT * FROM USERS'
