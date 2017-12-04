@@ -93,8 +93,13 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Nueva Copia de Seguridad</h3>
+                        <h3 class="text-themecolor">Profile</h3>
                     </div>
+                    <!--
+                    <div class="col-md-7 align-self-center">
+                        <a href="https://wrappixel.com/templates/adminpro/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Upgrade to Pro</a>
+                    </div>
+                    -->
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -112,9 +117,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Etiqueta</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Etiquetame ..." class="form-control form-control-line">
+                                            <input type="text" placeholder="Etiquetame ..." class="form-control form-control-line" name="label">
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                       <div class="form-group">
                                         <label for="exampleSelect1">Host</label>
                                         <select class="form-control" id="exampleSelect1">
@@ -127,11 +133,31 @@
                                         <label class="col-md-12">Descripcion</label>
                                         <div class="col-md-12">
                                             <textarea placeholder="¿Alguna observacion?" rows="5" class="form-control form-control-line"></textarea>
+=======
+                                  <fieldset class="form-group">
+                                    <legend>Hosts</legend>
+                                    % for h in hosts:
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                           <input type="radio" class="form-check-input" name="ip" value="{{ h[0] }}" checked = "checked"/>{{ h[0] }}  - {{ h[1] }}
+                                        </label>
+                                      </div>
+                                    % end
+                                   </fieldset>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Descripcion</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line" name="desc"></textarea>
+>>>>>>> 0efface3f8f488c1de49ea5bc47b50d6e8bc3db4
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
+<<<<<<< HEAD
                                             <button class="btn btn-success">Añadir</button>
+=======
+                                            <button class="btn btn-success">A&ntilde;adir host</button>
+>>>>>>> 0efface3f8f488c1de49ea5bc47b50d6e8bc3db4
                                         </div>
                                     </div>
                                 </form>
