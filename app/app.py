@@ -10,36 +10,18 @@ from beaker.middleware import SessionMiddleware
 session_opts = {
     'session.type': 'memory',
     'session.cookie_expires': 600,
-    #'session.data_dir': './data',
     'session.auto': True
 }
 app = SessionMiddleware(app(), session_opts)
 
-
-#def database_insert(sql_query):
-#	cur = None
-#	print sql_query
-#	try:
-#		cur = conn.cursor()
-#		cur.execute(sql_query)
-#		resultado = cur.statusmessage
-#		conn.commit()
-#	except Exception , e:
-#		print 'ERROR:', e[0]
-#		if cur is not None:
-#			conn.rollback()
-#	finally:
-#		if cur is not None:
-#			cur.close()#
-#    return cur.statusmessage
-
+# Login page
 @route('/')
 def index():
 	return template('views/login.tpl')
 
 @route('/login', method='POST')
 def login():
-	# Request variables
+ # Request variables
  v_user = request.forms.get('user')
  v_password = request.forms.get('password')
  sql_query = "SELECT user_user FROM users WHERE user_user = '%s'" %(v_user)
@@ -50,13 +32,7 @@ def login():
  else:
   return template('views/logout.tpl')
 
-
-
-
-    	#return template('login.tpl')
-
-
-
+# Main page
 @route('/dashboard')
 def dashboard():
  v_user = functions.get('s_user')
@@ -64,7 +40,6 @@ def dashboard():
  #sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
  sql_select = "select * from users where user_user = '%s';" %(v_user)
  campos=functions.database_select(sql_select, v_user, v_password)
- #return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
  gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=gravatar_url)
 
