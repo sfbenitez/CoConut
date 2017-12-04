@@ -46,7 +46,7 @@ def login():
 		functions.test_connection(sql_query, v_user, v_password)
 		functions.set('s_user',v_user)
 		functions.set('s_password',v_password)
-        redirect('/dashboard')
+        redirect("/dashboard")
 	except:
 		return template('views/logout.tpl')
 
