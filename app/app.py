@@ -38,8 +38,8 @@ def dashboard():
  v_user = functions.get('s_user')
  v_password = functions.get('s_password')
  #sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
- sql_select = "select * from users where user_user = '%s';" %(v_user)
- campos=functions.database_select(sql_select, v_user, v_password)
+ #sql_select = "select * from users where user_user = '%s';" %(v_user)
+ #campos=functions.database_select(sql_select, v_user, v_password)
  gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=gravatar_url)
 
@@ -73,6 +73,7 @@ def newbackup():
  campos=functions.selectall(sql_select, v_user, v_password)
  return template('views/newbackup.tpl', user_user=v_user, hosts=campos, user_urlimage=gravatar_url)
 
+# Insert new backups
 @route('/insert', method='POST')
 def insertbackup():
  v_user = functions.get('s_user')
