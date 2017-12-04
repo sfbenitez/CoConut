@@ -10,37 +10,18 @@ app = app()
 plugin = bottle_session.SessionPlugin(cookie_lifetime=600)
 app.install(plugin)
 
-
-#def database_insert(sql_query):
-#	cur = None
-#	print sql_query
-#	try:
-#		cur = conn.cursor()
-#		cur.execute(sql_query)
-#		resultado = cur.statusmessage
-#		conn.commit()
-#	except Exception , e:
-#		print 'ERROR:', e[0]
-#		if cur is not None:
-#			conn.rollback()
-#	finally:
-#		if cur is not None:
-#			cur.close()#
-#    return cur.statusmessage
-
 @route('/')
 def index():
 	return template('login.tpl')
 
 @route('/dashboard', method='POST')
 def dashboard():
-	# Request variables
+	user = request.forms.get('user')
+	password = request.forms.get('password')
 	if user != "":
-		user = request.forms.get('user')
- 		password = request.forms.get('password')
+		response.set_cookie('username', user, path='/')
 	else:
-		user=request.get_cookie('user')
-	#ip = request.environ.get('REMOTE_ADDR')
+		return template('login.tpl')
 	# Connection string
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
 	# Saving connstring
@@ -74,6 +55,10 @@ def backups(user):
 	campos=selectall(sql_select)
 	return template('views/backups.tpl', backups=campos,user_user=campos[0][0])
 
+@route('/newcopy/:user', method='POST')
+def newcopy(user):
+	r = request.get_cookie('username')
+	return template('views/newcopy.tpl', user_user=r)
 
 # Static files
 @route('/static/<filepath:path>')
