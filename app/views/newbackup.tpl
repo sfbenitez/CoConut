@@ -133,13 +133,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Descripcion</label>
                                         <div class="col-md-12">
-                                            <textarea placeholder="¿Alguna observacion?" rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Descripcion</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line" name="desc"></textarea>
+                                            <textarea placeholder="¿Alguna observacion?" rows="5" class="form-control form-control-line" name="desc"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
