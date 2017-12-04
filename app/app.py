@@ -68,26 +68,17 @@ def dashboard():
  gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=gravatar_url)
 
-#@route('/login',method="post")
-#def do_login():
-
-
+# Profile path
 @route('/profile')
 def profile():
  v_user = functions.get('s_user')
  v_password = functions.get('s_password')
  sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(v_user)
  campos=functions.database_select(sql_select, v_user, v_password)
- # test image gravatar
  gravatar_url = functions.miniavatar(v_user,v_password)
-
  return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=gravatar_url)
 
-
-#	sql_select='SELECT * FROM USERS'
-#    campos=database_select(sql_select)
-
-#    return template('index.tpl',  user_user=campos[0], user_name=campos[1])
+# Backups list
 @route('/backups')
 def backups():
  v_user = functions.get('s_user')
@@ -97,12 +88,15 @@ def backups():
  gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/backups.tpl', backups=campos, user_user=v_user, user_urlimage=gravatar_url)
 
+# New Backup forms
 @route('/newbackup')
 def newbackup():
  v_user = functions.get('s_user')
  v_password = functions.get('s_password')
  gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/newcopy.tpl', user_user=v_user, user_urlimage=gravatar_url)
+
+
 
 # Static files
 @route('/static/<filepath:path>')
