@@ -17,7 +17,7 @@
   			<div class="inset">
 	  			<p>
 	    		 <label for="user">USER NAME</label>
-   	 			<input type="text" placeholder="nombre.apellido" name="user" required value="sergio.ferrete"/>
+   	 			<input type="text" placeholder="nombre.apellido" name="user" required/>
 				</p>
   				<p>
 				    <label for="password">PASSWORD</label>
