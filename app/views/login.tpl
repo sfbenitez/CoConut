@@ -12,16 +12,16 @@
 
 <body>
 	<div class="main">
-		<form action="/dashboard" method="post">
+		<form action="/login" method="post">
     		<h1><span>Alumno</span> <lable> Login </lable> </h1>
   			<div class="inset">
 	  			<p>
-	    		 <label for="userName">USER NAME</label>
-   	 			<input type="text" placeholder="nombre.apellido" required/>
+	    		 <label for="user">USER NAME</label>
+   	 			<input type="text" placeholder="nombre.apellido" name="user" required value="sergio.ferrete"/>
 				</p>
   				<p>
 				    <label for="password">PASSWORD</label>
-				    <input type="password" placeholder="password" required/>
+				    <input type="password" placeholder="password" name="password" required/>
   				</p>
           <!--
 				  <p>

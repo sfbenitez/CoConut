@@ -3,7 +3,7 @@ import os
 from bottle import route,run,get,template,request, static_file, response, redirect, app, debug
 import bottle_session
 import psycopg2
-from functions import selectall,database_select
+import functions
 from beaker.middleware import SessionMiddleware
 
 session_opts = {
@@ -36,17 +36,17 @@ app = SessionMiddleware(app(), session_opts)
 def index():
 	return template('views/login.tpl')
 
-@route('/login')
+@route('/login', method='POST')
 def login():
 	# Request variables
 	v_user = request.forms.get('user')
 	v_password = request.forms.get('password')
 	sql_query = "SELECT USER_USER FROM USERS WHERE USER_USER = '%s'" %(v_user)
 	try:
-		test_connection(sql_query, v_user, v_password)
-		functions.set("s_user",v_user)
-		functions.set("s_password",v_user)
-		redirect('/dashboard')
+		functions.test_connection(sql_query, v_user, v_password)
+		functions.set('s_user',v_user)
+		functions.set('s_password',v_password)
+        redirect('/dashboard')
 	except:
 		return template('views/logout.tpl')
 
@@ -59,10 +59,10 @@ def login():
 @route('/dashboard', method='POST')
 def dashboard():
 	v_user = functions.get('s_user')
-	v_user = functions.get('s_password')
+	v_password = functions.get('s_password')
 	#sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
 	sql_select = "select * from users where ;"
-	campos=database_select(sql_select, v_user)
+	campos=functions.database_select(sql_select, v_user, v_password)
 	#return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
 	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=campos[5])
 

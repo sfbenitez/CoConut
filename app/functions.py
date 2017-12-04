@@ -37,10 +37,11 @@ def selectall(sql_query):
 			cur.close()
 	return resultado
 
-def database_select(sql_query):
+def database_select(sql_query, v_user, v_password):
 	cur = None
-	v_user = get('s_user')
-	v_password = get('s_password')
+	print
+	#v_user = get('s_user')
+	#v_password = get('s_password')
 	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(v_user, v_password)
 	connect = psycopg2.connect(connstring)
