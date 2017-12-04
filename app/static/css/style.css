@@ -998,7 +998,8 @@ File: scss
   position: relative; }
 
 .container-fluid {
-  padding: 25px 25px; }
+  padding: 25px 25px;
+  background-color: #172b41;}
 
 .card {
   margin-bottom: 30px; }
@@ -1265,7 +1266,7 @@ Notify
  Breadcrumb and page title
 *******************/
 .page-titles {
-  background: #f4f6f9;
+  background: #172c42;
   margin-bottom: 20px;
   padding: 0px; }
   .page-titles h3 {
@@ -1542,13 +1543,13 @@ ul#themecolors {
 *******************/
 .footer {
   bottom: 0;
-  color: #67757c;
+  color: #fff;
   left: 0px;
   padding: 17px 15px;
   position: absolute;
   right: 0;
   border-top: 1px solid rgba(120, 130, 140, 0.13);
-  background: #ffffff; }
+  background: #172b41; }
 
 /*******************
  scrollbar

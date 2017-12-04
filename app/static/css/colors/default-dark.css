@@ -19,7 +19,7 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background: #252b34; }
+  background: #0A192A; }
   .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
     display: none; }
   .topbar .top-navbar .navbar-nav > .nav-item > span {
@@ -70,7 +70,7 @@ a.link:hover, a.link:focus {
   border-left: 4px solid #398bf7; }
 
 .text-themecolor {
-  color: #398bf7 !important; }
+  color: #fff !important; }
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
@@ -104,7 +104,7 @@ a.link:hover, a.link:focus {
 *******************/
 .card-no-border .left-sidebar,
 .card-no-border .sidebar-nav {
-  background: #242a33; }
+  background: #172a40; }
 
 .mini-sidebar .sidebar-nav {
   background: transparent; }
@@ -132,7 +132,8 @@ a.link:hover, a.link:focus {
     color: #ffffff; }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-  color: #ffffff; }
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.39); }
   .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover i {
     color: #ffffff; }
 
