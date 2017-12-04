@@ -72,11 +72,14 @@ def miniavatar(v_user, v_password):
 	sql_query="select user_email from users where user_user = '%s'" %(v_user)
 	consulta=database_select(sql_query, v_user, v_password)
 	email=consulta[0]
- 	default = "default.jpg"
- 	size = 512
- 	gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
- 	gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
-	return gravatar_url
+	if email is not None:
+		default = "default.jpg"
+ 		size = 512
+ 		gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
+ 		gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+		return gravatar_url
+	else:
+		return 
 
 
 def set(key,value):
