@@ -79,7 +79,7 @@ def miniavatar(v_user, v_password):
  		gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
 		return gravatar_url
 	else:
-		return 
+		return "http://www.charliejsanchez.com/wp-content/uploads/2017/12/default.jpg"
 
 
 def set(key,value):
