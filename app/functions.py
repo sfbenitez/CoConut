@@ -61,11 +61,11 @@ def database_insert(sql_query, v_user, v_password):
   cur = connect.cursor()
   cur.execute(sql_query)
   resultado = cur.statusmessage
-  conn.commit()
+  connect.commit()
  except Exception , e:
   print 'ERROR:', e[0]
   if cur is not None:
-   conn.rollback()
+   connect.rollback()
  finally:
   if cur is not None:
    cur.close()

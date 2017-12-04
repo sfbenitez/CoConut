@@ -115,7 +115,7 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form action="/insert" class="form-horizontal form-material">
+                                <form action="/insert" class="form-horizontal form-material" method="post">
                                     <div class="form-group">
                                         <label class="col-md-12">Etiqueta</label>
                                         <div class="col-md-12">
