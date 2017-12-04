@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-% include('header2.tpl', title='Backups')
+% include('header2.tpl', title='New Backup')
+
 <body class="fix-header card-no-border fix-sidebar">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -9,7 +10,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Admin Pro</p>
+            <p class="loader__label">Coconut</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -27,12 +28,12 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon --><b>
-                            <img src="../static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                            <img src="../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         </span>
                     </a>
                 </div>
@@ -63,7 +64,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-dark" href="#"><img src="../static/assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link waves-effect waves-dark" href="#"><img src="{{user_urlimage}}" alt="user" class="profile-pic" /></a>
                         </li>
                     </ul>
                 </div>
@@ -87,181 +88,78 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-							<div class="row">
-
-								<section class="content">
-									<h1>Table Filter</h1>
-									<div class="col-md-8 col-md-offset-2">
-										<div class="panel panel-default">
-											<div class="panel-body">
-												<div class="pull-right">
-													<div class="btn-group">
-														<button type="button" class="btn btn-success btn-filter" data-target="pagado">Pagado</button>
-														<button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Pendiente</button>
-														<button type="button" class="btn btn-danger btn-filter" data-target="cancelado">Cancelado</button>
-														<button type="button" class="btn btn-default btn-filter" data-target="all">Todos</button>
-													</div>
-												</div>
-												<div class="table-container">
-													<table class="table table-filter">
-														<tbody>
-															<tr data-status="pagado">
-																<td>
-																	<div class="ckbox">
-																		<input type="checkbox" id="checkbox1">
-																		<label for="checkbox1"></label>
-																	</div>
-																</td>
-																<td>
-																	<a href="javascript:;" class="star">
-																		<i class="glyphicon glyphicon-star"></i>
-																	</a>
-																</td>
-																<td>
-																	<div class="media">
-																		<a href="#" class="pull-left">
-																			<img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-																		</a>
-																		<div class="media-body">
-																			<span class="media-meta pull-right">Febrero 13, 2016</span>
-																			<h4 class="title">
-																				Lorem Impsum
-																				<span class="pull-right pagado">(Pagado)</span>
-																			</h4>
-																			<p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-																		</div>
-																	</div>
-																</td>
-															</tr>
-															<tr data-status="pendiente">
-																<td>
-																	<div class="ckbox">
-																		<input type="checkbox" id="checkbox3">
-																		<label for="checkbox3"></label>
-																	</div>
-																</td>
-																<td>
-																	<a href="javascript:;" class="star">
-																		<i class="glyphicon glyphicon-star"></i>
-																	</a>
-																</td>
-																<td>
-																	<div class="media">
-																		<a href="#" class="pull-left">
-																			<img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-																		</a>
-																		<div class="media-body">
-																			<span class="media-meta pull-right">Febrero 13, 2016</span>
-																			<h4 class="title">
-																				Lorem Impsum
-																				<span class="pull-right pendiente">(Pendiente)</span>
-																			</h4>
-																			<p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-																		</div>
-																	</div>
-																</td>
-															</tr>
-															<tr data-status="cancelado">
-																<td>
-																	<div class="ckbox">
-																		<input type="checkbox" id="checkbox2">
-																		<label for="checkbox2"></label>
-																	</div>
-																</td>
-																<td>
-																	<a href="javascript:;" class="star">
-																		<i class="glyphicon glyphicon-star"></i>
-																	</a>
-																</td>
-																<td>
-																	<div class="media">
-																		<a href="#" class="pull-left">
-																			<img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-																		</a>
-																		<div class="media-body">
-																			<span class="media-meta pull-right">Febrero 13, 2016</span>
-																			<h4 class="title">
-																				Lorem Impsum
-																				<span class="pull-right cancelado">(Cancelado)</span>
-																			</h4>
-																			<p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-																		</div>
-																	</div>
-																</td>
-															</tr>
-															<tr data-status="pagado" class="selected">
-																<td>
-																	<div class="ckbox">
-																		<input type="checkbox" id="checkbox4" checked>
-																		<label for="checkbox4"></label>
-																	</div>
-																</td>
-																<td>
-																	<a href="javascript:;" class="star star-checked">
-																		<i class="glyphicon glyphicon-star"></i>
-																	</a>
-																</td>
-																<td>
-																	<div class="media">
-																		<a href="#" class="pull-left">
-																			<img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-																		</a>
-																		<div class="media-body">
-																			<span class="media-meta pull-right">Febrero 13, 2016</span>
-																			<h4 class="title">
-																				Lorem Impsum
-																				<span class="pull-right pagado">(Pagado)</span>
-																			</h4>
-																			<p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-																		</div>
-																	</div>
-																</td>
-															</tr>
-															<tr data-status="pendiente">
-																<td>
-																	<div class="ckbox">
-																		<input type="checkbox" id="checkbox5">
-																		<label for="checkbox5"></label>
-																	</div>
-																</td>
-																<td>
-																	<a href="javascript:;" class="star">
-																		<i class="glyphicon glyphicon-star"></i>
-																	</a>
-																</td>
-																<td>
-																	<div class="media">
-																		<a href="#" class="pull-left">
-																			<img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-																		</a>
-																		<div class="media-body">
-																			<span class="media-meta pull-right">Febrero 13, 2016</span>
-																			<h4 class="title">
-																				Lorem Impsum
-																				<span class="pull-right pendiente">(Pendiente)</span>
-																			</h4>
-																			<p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-																		</div>
-																	</div>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-										</div>
-										<div class="content-footer">
-											<p>
-												Page © - 2016 <br>
-												Powered By <a href="https://www.facebook.com/tavo.qiqe.lucero" target="_blank">TavoQiqe</a>
-											</p>
-										</div>
-									</div>
-								</section>
-
-							</div>
-						</div>
-						% include('footer.tpl')
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">Profile</h3>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href="https://wrappixel.com/templates/adminpro/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Upgrade to Pro</a>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/insert" class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Etiqueta</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Etiquetame ..." class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <fieldset class="form-group">
+                                    <legend>Hosts</legend>
+                                    % for h in hosts:
+                                      <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input type="radio" class="form-check-input" name="{{ h[0] }}" id="{{ h[0] }}" value="{{ h[0] }}" checked>
+                                          {{ h[1] }}
+                                        </label>
+                                      </div>
+                                    % end
+                                  </fieldset>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Descripcion</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-success">Update Profile</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                © 2017 Admin Pro by wrappixel.com
+            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -276,29 +174,18 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-		<script>
-		$(document).ready(function () {
-
-			$('.star').on('click', function () {
-		      $(this).toggleClass('star-checked');
-		    });
-
-		    $('.ckbox label').on('click', function () {
-		      $(this).parents('tr').toggleClass('selected');
-		    });
-
-		    $('.btn-filter').on('click', function () {
-		      var $target = $(this).data('target');
-		      if ($target != 'all') {
-		        $('.table tr').css('display', 'none');
-		        $('.table tr[data-status="' + $target + '"]').fadeIn('slow');
-		      } else {
-		        $('.table tr').css('display', 'none').fadeIn('slow');
-		      }
-		    });
-
-		 });
-		</script>
-    % include('jquery2.tpl')
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
 </body>
+
 </html>
