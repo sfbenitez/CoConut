@@ -35,8 +35,11 @@ def index():
 @route('/dashboard', method='POST')
 def dashboard():
 	# Request variables
-	user = request.forms.get('user')
- 	password = request.forms.get('password')
+	if user != "":
+		user = request.forms.get('user')
+ 		password = request.forms.get('password')
+	else:
+		user=request.get_cookie('user')
 	#ip = request.environ.get('REMOTE_ADDR')
 	# Connection string
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
@@ -59,7 +62,8 @@ def profile(user):
 	sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(user)
 	campos=database_select(sql_select)
 	return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
-
+	user=user
+	response.set_cookie('usuario', user)
 #	sql_select='SELECT * FROM USERS'
 #    campos=database_select(sql_select)
 
