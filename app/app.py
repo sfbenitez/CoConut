@@ -94,10 +94,12 @@ def backups():
  v_password = functions.get('s_password')
  sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
  campos=functions.selectall(sql_select, v_user, v_password)
+ gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/backups.tpl', backups=campos, user_user=campos[0][0], user_urlimage=gravatar_url)
 
 @route('/newbackup')
 def newbackup():
+    gravatar_url = functions.miniavatar(v_user,v_password)
 	return template('views/newcopy.tpl', user_user="carlos.sanchez", user_urlimage=gravatar_url)
 
 # Static files
