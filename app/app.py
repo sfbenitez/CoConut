@@ -4,6 +4,7 @@ from bottle import route,run,get,template,request, static_file, response, redire
 import bottle_session
 import psycopg2
 from functions import selectall,database_select
+from beaker.middleware import SessionMiddleware
 
 session_opts = {
     'session.type': 'memory',
@@ -31,8 +32,8 @@ app = SessionMiddleware(app(), session_opts)
 #			cur.close()#
 #    return cur.statusmessage
 
-#@route('/')
-#def index():
+@route('/')
+def index():
 	# Request variables
 #	user = request.forms.get('user')
 #	password = request.forms.get('password')
@@ -42,7 +43,7 @@ app = SessionMiddleware(app(), session_opts)
 #		sesion.set("user",user)
 #	except:#
     	#return template('login.tpl')
-	#return redirect('/dashboard')
+	return template('views/login.tpl')
 
 
 @route('/dashboard', method='POST')
@@ -58,8 +59,8 @@ def dashboard():
 #def do_login():
 
 
-@route('/profile')
-def profile():
+@route('/profile/:user', method='get')
+def profile(user):
 	sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(user)
 	campos=database_select(sql_select)
 	return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
@@ -69,15 +70,15 @@ def profile():
 #    campos=database_select(sql_select)
 
 #    return template('index.tpl',  user_user=campos[0], user_name=campos[1])
-@route('/backups')
-def backups():
+@route('/backups/:user', method='get')
+def backups(user):
 	sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(user)
 	campos=selectall(sql_select)
 	return template('views/backups.tpl', backups=campos,user_user=campos[0][0])
 
 @route('/newbackup')
 def newbackup(user):
-	return template('views/new')
+	return template('views/newcopy.tpl')
 
 # Static files
 @route('/static/<filepath:path>')
