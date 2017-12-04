@@ -99,8 +99,9 @@ def backups():
 
 @route('/newbackup')
 def newbackup():
-    gravatar_url = functions.miniavatar(v_user,v_password)
-	return template('views/newcopy.tpl', user_user="carlos.sanchez", user_urlimage=gravatar_url)
+ v_user = functions.get('s_user')
+ v_password = functions.get('s_password')
+ return template('views/newcopy.tpl', user_user="carlos.sanchez")
 
 # Static files
 @route('/static/<filepath:path>')

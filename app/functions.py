@@ -2,6 +2,7 @@ import os
 import psycopg2
 from bottle import request
 from beaker.middleware import SessionMiddleware
+import urllib, hashlib
 
 def test_connection(sql_query, user, password):
 	cur = None
@@ -67,7 +68,7 @@ def database_select(sql_query, v_user, v_password):
 #		if cur is not None:
 #			cur.close()#
 #    return cur.statusmessage
-def miniavatar(v_user, v_password)
+def miniavatar(v_user, v_password):
 	sql_query="select user_email from users where user_user = '%s'" %(v_user)
 	email=database_select(sql_query, v_user, v_password)
  	default = "default.jpg"
