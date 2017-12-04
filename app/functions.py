@@ -1,11 +1,12 @@
 import os
 import psycopg2
 from bottle import request
+from beaker.middleware import SessionMiddleware
 
 def test_connection(sql_query, user, password):
 	cur = None
-	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
-	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
+	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
+	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
 	connect = psycopg2.connect(connstring)
 	print sql_query
 	try:
@@ -38,9 +39,10 @@ def selectall(sql_query):
 
 def database_select(sql_query):
 	cur = None
-	#connstring = request.get_cookie('concoockie')
-	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
-	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
+	v_user = get('s_user')
+	v_password = get('s_password')
+	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
+	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(v_user, v_password)
 	connect = psycopg2.connect(connstring)
 	print sql_query
 	try:

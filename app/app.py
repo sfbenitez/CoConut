@@ -34,13 +34,18 @@ app = SessionMiddleware(app(), session_opts)
 
 @route('/')
 def index():
+	return template('views/login.tpl')
+
+@route('/login')
+def login():
 	# Request variables
-	user = request.forms.get('user')
-	password = request.forms.get('password')
-	sql_query = "SELECT USER_USER FROM USERS WHERE USER_USER = '%s'" %(user)
+	v_user = request.forms.get('user')
+	v_password = request.forms.get('password')
+	sql_query = "SELECT USER_USER FROM USERS WHERE USER_USER = '%s'" %(v_user)
 	try:
-		test_connection(sql_query, user, password)
-		sesion.set("user",user)
+		test_connection(sql_query, v_user, v_password)
+		functions.set("s_user",v_user)
+		functions.set("s_password",v_user)
 		redirect('/dashboard')
 	except:
 		return template('views/logout.tpl')
@@ -48,15 +53,16 @@ def index():
 
 
     	#return template('login.tpl')
-#	return template('views/login.tpl')
+
 
 
 @route('/dashboard', method='POST')
 def dashboard():
-
+	v_user = functions.get('s_user')
+	v_user = functions.get('s_password')
 	#sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
-	sql_select = "select * from users;"
-	campos=database_select(sql_select)
+	sql_select = "select * from users where ;"
+	campos=database_select(sql_select, v_user)
 	#return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
 	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=campos[5])
 
