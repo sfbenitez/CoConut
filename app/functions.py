@@ -67,6 +67,15 @@ def database_select(sql_query, v_user, v_password):
 #		if cur is not None:
 #			cur.close()#
 #    return cur.statusmessage
+def miniavatar(v_user, v_password)
+	sql_query="select user_email from users where user_user = '%s'" %(v_user)
+	email=database_select(sql_query, v_user, v_password)
+ 	default = "default.jpg"
+ 	size = 512
+ 	gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
+ 	gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+	return gravatar_url
+
 
 def set(key,value):
 	s = request.environ.get('beaker.session')

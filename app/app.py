@@ -65,7 +65,8 @@ def dashboard():
  sql_select = "select * from users where user_user = '%s';" %(v_user)
  campos=functions.database_select(sql_select, v_user, v_password)
  #return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
- return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=campos[5])
+ gravatar_url = functions.miniavatar(v_user,v_password)
+ return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=gravatar_url)
 
 #@route('/login',method="post")
 #def do_login():
@@ -78,11 +79,7 @@ def profile():
  sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(v_user)
  campos=functions.database_select(sql_select, v_user, v_password)
  # test image gravatar
- email = campos[2]
- default = "default.jpg"
- size = 512
- gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
- gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+ gravatar_url = functions.miniavatar(v_user,v_password)
 
  return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=gravatar_url)
 
@@ -97,11 +94,11 @@ def backups():
  v_password = functions.get('s_password')
  sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
  campos=functions.selectall(sql_select, v_user, v_password)
- return template('views/backups.tpl', backups=campos,user_user=campos[0][0])
+ return template('views/backups.tpl', backups=campos, user_user=campos[0][0], user_urlimage=gravatar_url)
 
 @route('/newbackup')
 def newbackup():
-	return template('views/newcopy.tpl',user_user="carlos.sanchez")
+	return template('views/newcopy.tpl', user_user="carlos.sanchez", user_urlimage=gravatar_url)
 
 # Static files
 @route('/static/<filepath:path>')
