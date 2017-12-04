@@ -42,12 +42,11 @@ def login():
  v_user = request.forms.get('user')
  v_password = request.forms.get('password')
  sql_query = "SELECT user_user FROM users WHERE user_user = '%s'" %(v_user)
- try:
-  functions.test_connection(sql_query, v_user, v_password)
+ if functions.test_connection(sql_query, v_user, v_password):
   functions.set('s_user',v_user)
   functions.set('s_password',v_password)
   redirect('/dashboard')
- except:
+ else:
   return template('views/logout.tpl')
 
 
@@ -57,12 +56,12 @@ def login():
 
 
 
-@route('/dashboard', method='POST')
+@route('/dashboard')
 def dashboard():
 	v_user = functions.get('s_user')
 	v_password = functions.get('s_password')
 	#sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
-	sql_select = "select * from users where ;"
+	sql_select = "select * from users;"
 	campos=functions.database_select(sql_select, v_user, v_password)
 	#return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
 	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=campos[5])
