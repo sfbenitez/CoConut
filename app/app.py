@@ -58,25 +58,27 @@ def login():
 
 @route('/dashboard')
 def dashboard():
-	v_user = functions.get('s_user')
-	v_password = functions.get('s_password')
-	#sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
-	sql_select = "select * from users;"
-	campos=functions.database_select(sql_select, v_user, v_password)
-	#return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
-	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=campos[5])
+ v_user = functions.get('s_user')
+ v_password = functions.get('s_password')
+ #sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
+ sql_select = "select * from users where user_user = '%s';" %(v_user)
+ campos=functions.database_select(sql_select, v_user, v_password)
+ #return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
+ return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=campos[5])
 
 #@route('/login',method="post")
 #def do_login():
 
 
-@route('/profile/:user', method='get')
-def profile(user):
-	sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(user)
-	campos=database_select(sql_select)
-	return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
-	user=user
-	response.set_cookie('usuario', user)
+@route('/profile')
+def profile():
+ v_user = functions.get('s_user')
+ v_password = functions.get('s_password')
+ sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(v_user)
+ campos=functions.database_select(sql_select, v_user, v_password)
+ return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=campos[5])
+
+
 #	sql_select='SELECT * FROM USERS'
 #    campos=database_select(sql_select)
 
