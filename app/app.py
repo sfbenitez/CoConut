@@ -39,16 +39,17 @@ def index():
 @route('/login', method='POST')
 def login():
 	# Request variables
-	v_user = request.forms.get('user')
-	v_password = request.forms.get('password')
-	sql_query = "SELECT USER_USER FROM USERS WHERE USER_USER = '%s'" %(v_user)
-	try:
-		functions.test_connection(sql_query, v_user, v_password)
-		functions.set('s_user',v_user)
-		functions.set('s_password',v_password)
-        redirect("/dashboard")
-	except:
-		return template('views/logout.tpl')
+ v_user = request.forms.get('user')
+ v_password = request.forms.get('password')
+ sql_query = "SELECT user_user FROM users WHERE user_user = '%s'" %(v_user)
+ try:
+  functions.test_connection(sql_query, v_user, v_password)
+  functions.set('s_user',v_user)
+  functions.set('s_password',v_password)
+  redirect('/dashboard')
+ except:
+  return template('views/logout.tpl')
+
 
 
 
