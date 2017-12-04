@@ -96,7 +96,7 @@ def newbackup():
  gravatar_url = functions.miniavatar(v_user,v_password)
  sql_select="select host_ip, host_name from hosts where host_ip in (select host_ip from hostsowners where user_user = '%s')" %(v_user)
  campos==functions.selectall(sql_select, v_user, v_password)
- return template('views/newbackup.tpl', user_user=v_user, user_urlimage=gravatar_url)
+ return template('views/newbackup.tpl', user_user=v_user, hosts=campos, user_urlimage=gravatar_url)
 
 #@route('/insert')
 #def insertbackup():
