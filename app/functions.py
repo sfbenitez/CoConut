@@ -70,7 +70,8 @@ def database_select(sql_query, v_user, v_password):
 #    return cur.statusmessage
 def miniavatar(v_user, v_password):
 	sql_query="select user_email from users where user_user = '%s'" %(v_user)
-	email=database_select(sql_query, v_user, v_password)
+	consulta=database_select(sql_query, v_user, v_password)
+	email=consulta[0]
  	default = "default.jpg"
  	size = 512
  	gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
