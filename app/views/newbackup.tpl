@@ -28,12 +28,12 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon --><b>
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="../static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                            <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img src="../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         </span>
                     </a>
                 </div>
@@ -93,10 +93,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Profile</h3>
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminpro/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Upgrade to Pro</a>
+                        <h3 class="text-themecolor">Nueva Copia de Seguridad</h3>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -118,26 +115,23 @@
                                             <input type="text" placeholder="Etiquetame ..." class="form-control form-control-line">
                                         </div>
                                     </div>
-                                    <fieldset class="form-group">
-                                    <legend>Hosts</legend>
-                                    % for h in hosts:
-                                      <div class="form-check">
-                                        <label class="form-check-label">
-                                          <input type="radio" class="form-check-input" name="{{ h[0] }}" id="{{ h[0] }}" value="{{ h[0] }}" checked>
-                                          {{ h[1] }}
-                                        </label>
+                                      <div class="form-group">
+                                        <label for="exampleSelect1">Host</label>
+                                        <select class="form-control" id="exampleSelect1">
+                                          % for h in hosts:
+                                            <option>{{ h[0]}}</option>
+                                          % end
+                                        </select>
                                       </div>
-                                    % end
-                                  </fieldset>
                                     <div class="form-group">
                                         <label class="col-md-12">Descripcion</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                            <textarea placeholder="¿Alguna observacion?" rows="5" class="form-control form-control-line"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
+                                            <button class="btn btn-success">Añadir</button>
                                         </div>
                                     </div>
                                 </form>
@@ -157,9 +151,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer">
-                © 2017 Admin Pro by wrappixel.com
-            </footer>
+            % include('footer.tpl')
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -174,18 +166,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
+    % include('jquery2.tpl')
 </body>
 
 </html>
