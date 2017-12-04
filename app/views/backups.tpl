@@ -26,15 +26,16 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <!-- Logo icon --><b>
                             <img src="../static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
                         <!--End Logo icon -->
-                        <!-- Logo text -->
+                        <!-- Logo text
                         <span>
                             <img src="../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         </span>
+                        -->
                     </a>
                 </div>
                 <!-- ============================================================== -->
@@ -54,12 +55,13 @@
                     <ul class="navbar-nav my-lg-0">
                         <!-- ============================================================== -->
                         <!-- Search -->
-                        <!-- ============================================================== -->
+                        <!-- ==============================================================
                         <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search">
                                 <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
                             </form>
                         </li>
+                        -->
                         <!-- ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
@@ -93,11 +95,13 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Table basic</h3>
+                        <h3 class="text-themecolor">Copias realizadas</h3>
                     </div>
+                    <!--
                     <div class="col-md-7 align-self-center">
                         <a href="https://wrappixel.com/templates/adminpro/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
+                  -->
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -110,8 +114,10 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
+                              <!--
                                 <h4 class="card-title">Basic Table</h4>
                                 <h6 class="card-subtitle">Add class <code>.table</code></h6>
+                              -->
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>

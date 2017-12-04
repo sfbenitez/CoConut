@@ -26,15 +26,16 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <!-- Logo icon --><b>
                             <img src="../static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
                         <!--End Logo icon -->
-                        <!-- Logo text -->
+                        <!-- Logo text
                         <span>
                             <img src="../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         </span>
+                        -->
                     </a>
                 </div>
                 <!-- ============================================================== -->
@@ -54,12 +55,13 @@
                     <ul class="navbar-nav my-lg-0">
                         <!-- ============================================================== -->
                         <!-- Search -->
-                        <!-- ============================================================== -->
+                        <!-- ==============================================================
                         <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search">
                                 <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
                             </form>
                         </li>
+                        -->
                         <!-- ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
@@ -120,7 +122,6 @@
                                             <input type="text" placeholder="Etiquetame ..." class="form-control form-control-line" name="label">
                                         </div>
                                     </div>
-<<<<<<< HEAD
                                       <div class="form-group">
                                         <label for="exampleSelect1">Host</label>
                                         <select class="form-control" id="exampleSelect1">
@@ -133,31 +134,17 @@
                                         <label class="col-md-12">Descripcion</label>
                                         <div class="col-md-12">
                                             <textarea placeholder="¿Alguna observacion?" rows="5" class="form-control form-control-line"></textarea>
-=======
-                                  <fieldset class="form-group">
-                                    <legend>Hosts</legend>
-                                    % for h in hosts:
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                           <input type="radio" class="form-check-input" name="ip" value="{{ h[0] }}" checked = "checked"/>{{ h[0] }}  - {{ h[1] }}
-                                        </label>
-                                      </div>
-                                    % end
-                                   </fieldset>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Descripcion</label>
                                         <div class="col-md-12">
                                             <textarea rows="5" class="form-control form-control-line" name="desc"></textarea>
->>>>>>> 0efface3f8f488c1de49ea5bc47b50d6e8bc3db4
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-<<<<<<< HEAD
-                                            <button class="btn btn-success">Añadir</button>
-=======
                                             <button class="btn btn-success">A&ntilde;adir host</button>
->>>>>>> 0efface3f8f488c1de49ea5bc47b50d6e8bc3db4
                                         </div>
                                     </div>
                                 </form>

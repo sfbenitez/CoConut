@@ -10,7 +10,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Backu APP</p>
+            <p class="loader__label">Coconut</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -26,15 +26,16 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <!-- Logo icon --><b>
                             <img src="../static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
                         <!--End Logo icon -->
-                        <!-- Logo text -->
+                        <!-- Logo text
                         <span>
                             <img src="../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         </span>
+                        -->
                     </a>
                 </div>
                 <!-- ============================================================== -->
@@ -54,12 +55,13 @@
                     <ul class="navbar-nav my-lg-0">
                         <!-- ============================================================== -->
                         <!-- Search -->
-                        <!-- ============================================================== -->
+                        <!-- ==============================================================
                         <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search">
                                 <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
                             </form>
                         </li>
+                        -->
                         <!-- ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
