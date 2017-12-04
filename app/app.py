@@ -73,11 +73,16 @@ def newbackup():
  campos=functions.selectall(sql_select, v_user, v_password)
  return template('views/newbackup.tpl', user_user=v_user, hosts=campos, user_urlimage=gravatar_url)
 
-#@route('/insert')
-#def insertbackup():
-# v_user = functions.get('s_user')
-# v_label = request.forms.get('label')
-# v_password = request.forms.get('password')
+@route('/insert')
+def insertbackup():
+ v_user = functions.get('s_user')
+ v_password = functions.get('s_password')
+ v_label = request.forms.get('label')
+ v_ip = request.forms.get('ip')
+ v_desc = request.forms.get('desc')
+ sql_insert="insert into backups (backup_user, backup_host, backup_labe, backup_description, backup_action) values ('%s','%s','%s','%s','%s');" %(v_user, v_label, v_ip, v_desc, 'Manual')
+ database_insert(sql_insert, v_user, v_password)
+ return template('/backups')
 
 # Static files
 @route('/static/<filepath:path>')

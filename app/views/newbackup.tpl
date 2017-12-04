@@ -124,7 +124,7 @@
                                     </div>
                                       <div class="form-group">
                                         <label for="exampleSelect1">Host</label>
-                                        <select class="form-control" id="exampleSelect1">
+                                        <select class="form-control" id="exampleSelect1" name="ip">
                                           % for h in hosts:
                                             <option>{{ h[0]}}</option>
                                           % end
