@@ -1,5 +1,6 @@
 import os
 import psycopg2
+from bottle import request
 
 def selectall(sql_query):
 	cur = None
@@ -52,3 +53,16 @@ def database_select(sql_query):
 #		if cur is not None:
 #			cur.close()#
 #    return cur.statusmessage
+
+def set(key,value):
+	s = request.environ.get('beaker.session')
+
+	s[key]=value
+
+def get(key):
+	s = request.environ.get('beaker.session')
+
+	if key in s:
+		return s[key]
+	else:
+return ""
