@@ -83,11 +83,13 @@ def profile():
 #    campos=database_select(sql_select)
 
 #    return template('index.tpl',  user_user=campos[0], user_name=campos[1])
-@route('/backups/:user', method='get')
-def backups(user):
-	sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(user)
-	campos=selectall(sql_select)
-	return template('views/backups.tpl', backups=campos,user_user=campos[0][0])
+@route('/backups')
+def backups():
+ v_user = functions.get('s_user')
+ v_password = functions.get('s_password')
+ sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
+ campos=functions.selectall(sql_select, v_user, v_password)
+ return template('views/backups.tpl', backups=campos,user_user=campos[0][0])
 
 @route('/newbackup')
 def newbackup():

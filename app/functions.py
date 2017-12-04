@@ -5,7 +5,6 @@ from beaker.middleware import SessionMiddleware
 
 def test_connection(sql_query, user, password):
 	cur = None
-	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
 	connect = psycopg2.connect(connstring)
 	print sql_query
@@ -20,10 +19,9 @@ def test_connection(sql_query, user, password):
 			cur.close()
 	return resultado
 
-def selectall(sql_query):
+def selectall(sql_query, v_user, v_password):
 	cur = None
-	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
-	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
+	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(v_user, v_password)
 	connect = psycopg2.connect(connstring)
 	print sql_query
 	try:
@@ -39,10 +37,6 @@ def selectall(sql_query):
 
 def database_select(sql_query, v_user, v_password):
 	cur = None
-	print
-	#v_user = get('s_user')
-	#v_password = get('s_password')
-	#connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %('sergio.ferrete', 'usuario')
 	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(v_user, v_password)
 	connect = psycopg2.connect(connstring)
 	print sql_query
