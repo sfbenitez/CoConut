@@ -6,7 +6,7 @@ import psycopg2
 from functions import selectall,database_select
 
 session_opts = {
-    'session.type': 'file',
+    'session.type': 'memory',
     'session.cookie_expires': 600,
     #'session.data_dir': './data',
     'session.auto': True
@@ -31,30 +31,31 @@ app = SessionMiddleware(app(), session_opts)
 #			cur.close()#
 #    return cur.statusmessage
 
-@route('/')
-def index():
+#@route('/')
+#def index():
 	# Request variables
-    user = request.forms.get('user')
-    password = request.forms.get('password')
-    usu=Usuario.select().where(Usuario.Usuario==username,Usuario.Pass==hashlib.md5(password).hexdigest())
-    if usu.count()==1:
-        sesion.set("user",user)
-        redirect('/dashboard')
-    else:
-        info={"error":True}
-	return template('login.tpl')
+#	user = request.forms.get('user')
+#	password = request.forms.get('password')
+#	constring='dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
+#	try:
+#		conectado=psycopg2.connect(connstring)
+#		sesion.set("user",user)
+#	except:#
+    	#return template('login.tpl')
+	#return redirect('/dashboard')
+
 
 @route('/dashboard', method='POST')
 def dashboard():
-	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user,password)
+
 	#sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
 	sql_select = "select * from users;"
 	campos=database_select(sql_select)
 	#return template('dashboard.tpl', numbackups=campos[0], maquina=campos[1], user_user=user)
 	return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=campos[5])
 
-@route('/login',method="post")
-def do_login():
+#@route('/login',method="post")
+#def do_login():
 
 
 @route('/profile')
