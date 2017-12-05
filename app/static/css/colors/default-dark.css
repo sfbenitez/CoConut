@@ -153,3 +153,10 @@ a.link:hover, a.link:focus {
 .little {
   font-size: 11px;
 }
+.bolding {
+  font-weight: 800;
+}
+.labeling {
+  font-style: italic;
+  font-size: 14px;
+}

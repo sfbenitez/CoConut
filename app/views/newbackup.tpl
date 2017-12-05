@@ -124,14 +124,14 @@
                                         <label for="exampleSelect1">Host</label>
                                         <select class="form-control" id="exampleSelect1" name="ip">
                                           % for h in hosts:
-                                            <option>{{ h[0]}} || {{ h[1]}}</option>
+                                            <option>{{h[0]}}</option>
                                           % end
                                         </select>
                                       </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Descripcion</label>
                                         <div class="col-md-12">
-                                            <textarea placeholder="¿Alguna observacion?" rows="5" class="form-control form-control-line" name="desc"></textarea>
+                                            <textarea placeholder="¿Alguna observacion?" rows="5" class="form-control form-control-line" name="desc" maxlength="80"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

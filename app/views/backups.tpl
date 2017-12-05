@@ -144,11 +144,14 @@
                                                 <th>Date</th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
+                                              % contador = 0
                                               % for b in backups:
+                                              % contador += 1
                                               <tr>
-                                                <td> {{b[0]}} </td>
-                                                <td> {{b[1]}} </td>
+                                                <td class="bolding"> {{b[0]}} </td>
+                                                <td class="labeling"> {{b[1]}} </td>
                                                 <td class="little"> {{b[2]}} </td>
                                                 % if b[3] == 'Automatica':
                                                   <td class="table-success"> {{b[3]}} </td>
@@ -161,6 +164,15 @@
                                             </tr>
                                             % end
                                         </tbody>
+                                        <tfoot>
+                                          <tr>
+                                          <th></th>
+                                          <th></th>
+                                          <th></th>
+                                          <th></th>
+                                          <th class="bolding">Total: {{contador}}</th>
+                                          </tr>
+                                          </tfoot>
                                     </table>
                                 </div>
                             </div>
