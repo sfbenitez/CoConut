@@ -53,7 +53,7 @@ def database_select(sql_query, v_user, v_password):
     cur.close()
   return resultado
  except Exception , e:
-  return template('views/login.tpl', error='1')
+  return template('views/login.tpl')
 
 
 
