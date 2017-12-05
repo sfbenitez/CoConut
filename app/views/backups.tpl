@@ -112,7 +112,7 @@
                     <div class="col-lg-12">
                       <div class="col-lg-12">
                         <!-- Sarch by Host -->
-                        <form action="#" class="form-inline">
+                        <form action="/backups" class="form-inline" method="post">
                           <!-- Host -->
                           <label class="mr-sm-2 mb-0" for="first_name">Host</label>
                           <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="first_name">

@@ -54,23 +54,27 @@ def profile():
  return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=gravatar_url)
 
 # Backups list
-@route('/backups')
+@route('/backups', method=['get','post'])
 def backups():
  v_user = functions.get('s_user')
  v_password = functions.get('s_password')
- # v_fromdate = request.forms.get('date1')
- # v_todate = request.forms.get('date2')
- # v_host = request.forms.get('host')
- # if v_host == "":
+ v_fromdate = request.forms.get('date1')
+ print v_fromdate # 2017-12-20
+ v_todate = request.forms.get('date2')
+ v_host = request.forms.get('host')
+ if v_host == "" or v_host == None:
+  if v_fromdate == None:
+   sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
+ #  sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s' and backup_date between '%s' and '%s';" %(v_user, v_fromdate, v_todate)
+ # #  else:
+ # #    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
+  else:
  #  if v_fromdate <= v_todate:
- #    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s' and backup_date between '%s' and '%s';" %(v_user, v_fromdate, v_todate)
+   sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between to_date('%s','YYYY-MM-DD') and to_date('%s','YYYY-MM-DD') and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
+ else:
+  sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between to_date('%s','YYYY-MM-DD') and to_date('%s','YYYY-MM-DD') and backup_host = (select host_ip from hostsowners where user_user = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
  #  else:
- #    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
- # else:
- #  if v_fromdate <= v_todate:
- #    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s' and backup_date between '%s' and '%s' and backup_host = (SELECT host_ip from hosts where host_ip = '%s');" %(v_user, v_fromdate, v_todate, v_host)
- #  else:
- sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
+ # sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
  campos=functions.selectall(sql_select, v_user, v_password)
  gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/backups.tpl', backups=campos, user_user=v_user, user_urlimage=gravatar_url)

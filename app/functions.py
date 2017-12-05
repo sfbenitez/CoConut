@@ -7,21 +7,23 @@ import urllib, hashlib
 def test_connection(sql_query, user, password):
  cur = None
  connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
+ # try:
+ connect = psycopg2.connect(connstring)
+ print sql_query
  try:
-  connect = psycopg2.connect(connstring)
-  print sql_query
-  try:
-   cur = connect.cursor()
-   cur.execute(sql_query)
-   resultado = cur.fetchall()
-  except:
-   return false
-  finally:
-   if cur is not None:
-    cur.close()
-  return resultado
- except Exception, e:
-  redirect('/')
+  cur = connect.cursor()
+  cur.execute(sql_query)
+  resultado = cur.fetchall()
+ except:
+  return false
+ finally:
+  if cur is not None:
+   cur.close()
+  else:
+   redirect('/')
+ return resultado
+ # except Exception, e:
+ #     redirect('/')
 
 
 def selectall(sql_query, v_user, v_password):
@@ -58,6 +60,8 @@ def database_select(sql_query, v_user, v_password):
   finally:
    if cur is not None:
     cur.close()
+   else:
+    return "";
   return resultado
  except Exception , e:
   return template('views/login.tpl')
