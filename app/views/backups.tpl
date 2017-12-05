@@ -110,27 +110,20 @@
                 <div class="row">
                     <!-- column -->
                     <div class="col-lg-12">
-                      <div class="col-lg-5">
+                      <div class="col-lg-12">
                         <!-- Sarch by Host -->
-                        <form action="">
+                        <form action="#" class="form-inline">ç
                           <!-- Host -->
-                          <div class="form-group">
-                            <label for="InputHost">Host: </label>
-                            <input type="text" class="form-control" id="InputHost" aria-describedby="HostHelp" placeholder="Enter a host" name="host">
-                            <small id="emailHelp" class="form-text text-muted">Si no introduce la dirección de un host, mostrará todos tus hosts.</small>
-                          </div>
-                          <!-- Date 1 -->
-                          <div class="form-group">
-                            <label for="FromDate">From: </label>
-                            <input class="form-control" type="date" value="2017-12-20" id="FromDate" name="date1">
-                          </div>
-                          <!-- Date 2 -->
-                          <div class="form-group">
-                            <label for="ToDate">To: </label>
-                            <input class="form-control" type="date" value="2018-04-01" id="ToDate" name="date2">
-                          </div>
-                          <button type="submit" class="btn btn-themecolor">Search</button>
-                          <br>
+                          <label class="mr-sm-2 mb-0" for="first_name">Host</label>
+                          <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="first_name">
+                          <!-- From -->
+                          <label class="mr-sm-2 mb-0" for="date1">From: </label>
+                          <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2017-12-20" id="date1" name="date1">
+                          <!-- To -->
+                          <label class="mr-sm-2 mb-0" for="date2">To: </label>
+                          <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2017-12-20" id="date2" name="date2">
+                          <!-- Button -->
+                          <button type="submit" class="btn btn-default mt-2 mt-sm-0">Search</button>
                         </form>
                       </div>
                         <!-- Show Hosts -->
