@@ -19,7 +19,7 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background: #0A192A; }
+  background: #fff; }
   .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
     display: none; }
   .topbar .top-navbar .navbar-nav > .nav-item > span {
@@ -70,7 +70,8 @@ a.link:hover, a.link:focus {
   border-left: 4px solid #398bf7; }
 
 .text-themecolor {
-  color: #fff !important; }
+  color: #000 !important;
+  font-weight: 800;}
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
@@ -104,7 +105,7 @@ a.link:hover, a.link:focus {
 *******************/
 .card-no-border .left-sidebar,
 .card-no-border .sidebar-nav {
-  background: #192637; }
+  background: #2f323e; }
 
 .mini-sidebar .sidebar-nav {
   background: transparent; }
@@ -131,9 +132,14 @@ a.link:hover, a.link:focus {
   .sidebar-nav > ul > li.active > a i {
     color: #ffffff; }
 
-.sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.39); }
+.sidebar-nav ul li a.active,  {
+  color: #fff;
+  background-color: #2cabe3;
+  font-weight: 500; }
+.sidebar-nav ul li a:hover {
+  color: #fff;
+  background-color: #1d2027;
+  font-weight: 500;}
   .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover i {
     color: #ffffff; }
 
