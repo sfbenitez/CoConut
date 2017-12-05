@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from bottle import request
+from bottle import request, redirect
 from beaker.middleware import SessionMiddleware
 import urllib, hashlib
 
@@ -37,20 +37,25 @@ def selectall(sql_query, v_user, v_password):
  return resultado
 
 def database_select(sql_query, v_user, v_password):
-	cur = None
-	connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(v_user, v_password)
-	connect = psycopg2.connect(connstring)
-	print sql_query
-	try:
-		cur = connect.cursor()
-		cur.execute(sql_query)
-		resultado = cur.fetchone()
-	except:
-		return false
-	finally:
-		if cur is not None:
-			cur.close()
-	return resultado
+ cur = None
+ connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(v_user, v_password)
+ try:
+  connect = psycopg2.connect(connstring)
+  print sql_query
+  try:
+   cur = connect.cursor()
+   cur.execute(sql_query)
+   resultado = cur.fetchone()
+  except:
+   return false
+  finally:
+   if cur is not None:
+    cur.close()
+  return resultado
+ except Exception , e:
+  return template('views/login.tpl', error='1')
+
+
 
 def database_insert(sql_query, v_user, v_password):
  cur = None
