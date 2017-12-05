@@ -705,7 +705,8 @@ Layouts
   border: 0px;
   border-radius: 0px;
   -webkit-box-shadow: none;
-  box-shadow: none; }
+  box-shadow: none;
+  margin-top: 20px; }
 
 .card-no-border .shadow-none {
   -webkit-box-shadow: none;
@@ -2567,7 +2568,9 @@ Form-control
   background-color: #06d79c; }
 
 form label {
-  font-weight: 400; }
+  font-weight: 400;
+  color: #fff;
+  font-weight: 700;}
 
 .form-group {
   margin-bottom: 25px; }
