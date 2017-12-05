@@ -95,7 +95,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Copias realizadas</h3>
+                        <h3 class="text-themecolor">Backups Done</h3>
                     </div>
                     <!--
                     <div class="col-md-7 align-self-center">
@@ -112,6 +112,30 @@
                 <div class="row">
                     <!-- column -->
                     <div class="col-lg-12">
+                      <div class="col-lg-5">
+                        <!-- Sarch by Host -->
+                        <form action="">
+                          <!-- Host -->
+                          <div class="form-group">
+                            <label for="InputHost">Host: </label>
+                            <input type="text" class="form-control" id="InputHost" aria-describedby="HostHelp" placeholder="Enter a host">
+                            <small id="emailHelp" class="form-text text-muted">Si no introduce la dirección de un host, mostrará todos tus hosts.</small>
+                          </div>
+                          <!-- Date 1 -->
+                          <div class="form-group">
+                            <label for="FromDate">From: </label>
+                            <input class="form-control" type="date" value="2017-12-20" id="FromDate">
+                          </div>
+                          <!-- Date 2 -->
+                          <div class="form-group">
+                            <label for="ToDate">To: </label>
+                            <input class="form-control" type="date" value="2018-04-01" id="ToDate">
+                          </div>
+                          <button type="submit" class="btn btn-themecolor">Search</button>
+                          <br>
+                        </form>
+                      </div>
+                        <!-- Show Hosts -->
                         <div class="card">
                             <div class="card-body">
                               <!--
@@ -119,7 +143,7 @@
                                 <h6 class="card-subtitle">Add class <code>.table</code></h6>
                               -->
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-dark table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Host</th>
