@@ -13,7 +13,7 @@
 <body>
 	<div class="main">
 		<form action="/login" method="post">
-    		<h1><span>Alumno</span> <lable> Login </lable> </h1>
+    		<h1><span>CoConut</span> <lable> Login </lable> </h1>
   			<div class="inset">
 	  			<p>
 	    		 <label for="user">USER NAME</label>
