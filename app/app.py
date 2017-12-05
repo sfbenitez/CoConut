@@ -58,6 +58,14 @@ def profile():
 def backups():
  v_user = functions.get('s_user')
  v_password = functions.get('s_password')
+ # v_fromdate = request.forms.get('date1')
+ # v_todate = request.forms.get('date2')
+ # v_host = request.forms.get('host')
+ # if v_host == "":
+ #  if v_fromdate <= v_todate;
+ #   sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s' and backup_date between '%s' and '%s';" %(v_user, v_fromdate, v_todate)
+ #
+
  sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
  campos=functions.selectall(sql_select, v_user, v_password)
  gravatar_url = functions.miniavatar(v_user,v_password)
@@ -68,9 +76,9 @@ def backups():
 def newbackup():
  v_user = functions.get('s_user')
  v_password = functions.get('s_password')
- gravatar_url = functions.miniavatar(v_user,v_password)
  sql_select="select host_ip, host_name from hosts where host_ip in (select host_ip from hostsowners where user_user = '%s');" %(v_user)
  campos=functions.selectall(sql_select, v_user, v_password)
+ gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/newbackup.tpl', user_user=v_user, hosts=campos, user_urlimage=gravatar_url)
 
 # Insert new backups

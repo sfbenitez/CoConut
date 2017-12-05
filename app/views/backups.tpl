@@ -118,18 +118,18 @@
                           <!-- Host -->
                           <div class="form-group">
                             <label for="InputHost">Host: </label>
-                            <input type="text" class="form-control" id="InputHost" aria-describedby="HostHelp" placeholder="Enter a host">
+                            <input type="text" class="form-control" id="InputHost" aria-describedby="HostHelp" placeholder="Enter a host" name="host">
                             <small id="emailHelp" class="form-text text-muted">Si no introduce la dirección de un host, mostrará todos tus hosts.</small>
                           </div>
                           <!-- Date 1 -->
                           <div class="form-group">
                             <label for="FromDate">From: </label>
-                            <input class="form-control" type="date" value="2017-12-20" id="FromDate">
+                            <input class="form-control" type="date" value="2017-12-20" id="FromDate" name="date1">
                           </div>
                           <!-- Date 2 -->
                           <div class="form-group">
                             <label for="ToDate">To: </label>
-                            <input class="form-control" type="date" value="2018-04-01" id="ToDate">
+                            <input class="form-control" type="date" value="2018-04-01" id="ToDate" name="date2">
                           </div>
                           <button type="submit" class="btn btn-themecolor">Search</button>
                           <br>
