@@ -115,7 +115,7 @@
                         <form action="/backups" class="form-inline" method="post">
                           <!-- Host -->
                           <label class="mr-sm-2 mb-0" for="first_name">Host</label>
-                          <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="first_name">
+                          <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="host">
                           <!-- From -->
                           <label class="mr-sm-2 mb-0" for="date1">From: </label>
                           <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2017-12-20" id="date1" name="date1">

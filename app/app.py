@@ -62,6 +62,7 @@ def backups():
  print v_fromdate # 2017-12-20
  v_todate = request.forms.get('date2')
  v_host = request.forms.get('host')
+ print v_host
  if v_host == "" or v_host == None:
   if v_fromdate == None:
    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
