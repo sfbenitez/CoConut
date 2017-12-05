@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from bottle import request, redirect
+from bottle import request, redirect, template
 from beaker.middleware import SessionMiddleware
 import urllib, hashlib
 
