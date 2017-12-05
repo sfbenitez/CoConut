@@ -98,9 +98,9 @@ def insertbackup():
  redirect('/backups')
 
 @route('/logout')
- def logout():
-  functions.delete()
-  redirect('/')
+def logout():
+ functions.delete()
+ redirect('/')
 
 # Static files
 @route('/static/<filepath:path>')
