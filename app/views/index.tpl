@@ -18,11 +18,9 @@
                         <b>
                             <img src="static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
-                        <!--
                         <span>
                             <img src="static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         </span>
-                      -->
                     </a>
                 </div>
                 <div class="navbar-collapse">

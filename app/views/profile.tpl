@@ -31,11 +31,9 @@
                             <img src="../static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
                         <!--End Logo icon -->
-                        <!-- Logo text
                         <span>
                             <img src="../static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                         </span>
-                        -->
                     </a>
                 </div>
                 <!-- ============================================================== -->
