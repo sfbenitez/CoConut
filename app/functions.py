@@ -7,34 +7,40 @@ import urllib, hashlib
 def test_connection(sql_query, user, password):
  cur = None
  connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
- connect = psycopg2.connect(connstring)
- print sql_query
  try:
-  cur = connect.cursor()
-  cur.execute(sql_query)
-  resultado = cur.fetchall()
- except:
-  return false
- finally:
-  if cur is not None:
+  connect = psycopg2.connect(connstring)
+  print sql_query
+  try:
+   cur = connect.cursor()
+   cur.execute(sql_query)
+   resultado = cur.fetchall()
+  except:
+   return false
+  finally:
+   if cur is not None:
    cur.close()
- return resultado
+  return resultado
+ except Exception, e:
+  return template('views/login.tpl')
 
 def selectall(sql_query, v_user, v_password):
  cur = None
  connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(v_user, v_password)
- connect = psycopg2.connect(connstring)
- print sql_query
  try:
-  cur = connect.cursor()
-  cur.execute(sql_query)
-  resultado = cur.fetchall()
- except:
+  connect = psycopg2.connect(connstring)
   print sql_query
- finally:
-  if cur is not None:
+  try:
+   cur = connect.cursor()
+   cur.execute(sql_query)
+   resultado = cur.fetchall()
+  except:
+   print sql_query
+  finally:
+   if cur is not None:
    cur.close()
- return resultado
+  return resultado
+ except Exception, e:
+  return template('views/login.tpl')
 
 def database_select(sql_query, v_user, v_password):
  cur = None
@@ -60,21 +66,25 @@ def database_select(sql_query, v_user, v_password):
 def database_insert(sql_query, v_user, v_password):
  cur = None
  connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(v_user, v_password)
- connect = psycopg2.connect(connstring)
- print sql_query
  try:
-  cur = connect.cursor()
-  cur.execute(sql_query)
-  resultado = cur.statusmessage
-  connect.commit()
- except Exception , e:
-  print 'ERROR:', e[0]
-  if cur is not None:
-   connect.rollback()
- finally:
-  if cur is not None:
-   cur.close()
- return cur.statusmessage
+  connect = psycopg2.connect(connstring)
+  print sql_query
+  try:
+   cur = connect.cursor()
+   cur.execute(sql_query)
+   resultado = cur.statusmessage
+   connect.commit()
+  except Exception , e:
+   print 'ERROR:', e[0]
+   if cur is not None:
+    connect.rollback()
+  finally:
+   if cur is not None:
+    cur.close()
+  return cur.statusmessage
+ except Exception, e:
+  return template('views/login.tpl')
+
 
 def miniavatar(v_user, v_password):
 	sql_query="select user_email from users where user_user = '%s'" %(v_user)
