@@ -149,3 +149,7 @@ a.link:hover, a.link:focus {
 @media (min-width: 768px) {
   .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
     background: #1c2128; } }
+
+.little {
+  font-size: 11px;
+}

@@ -70,7 +70,7 @@ def backups():
  #  if v_fromdate <= v_todate:
  #    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s' and backup_date between '%s' and '%s' and backup_host = (SELECT host_ip from hosts where host_ip = '%s');" %(v_user, v_fromdate, v_todate, v_host)
  #  else:
- sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
+ sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
  campos=functions.selectall(sql_select, v_user, v_password)
  gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/backups.tpl', backups=campos, user_user=v_user, user_urlimage=gravatar_url)

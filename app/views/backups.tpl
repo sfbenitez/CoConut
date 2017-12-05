@@ -134,14 +134,14 @@
                                 <h6 class="card-subtitle">Add class <code>.table</code></h6>
                               -->
                                 <div class="table-responsive">
-                                    <table class="table table-dark table-striped">
-                                        <thead>
+                                    <table class="table">
+                                        <thead class="thead-inverse">
                                             <tr>
                                                 <th>Host</th>
-                                                <th>Etiqueta</th>
-                                                <th>Descripcion</th>
-                                                <th>Modo</th>
-                                                <th>Fecha</th>
+                                                <th>Label</th>
+                                                <th>Description</th>
+                                                <th>Mode</th>
+                                                <th>Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -149,8 +149,14 @@
                                               <tr>
                                                 <td> {{b[0]}} </td>
                                                 <td> {{b[1]}} </td>
-                                                <td> {{b[2]}} </td>
-                                                <td> {{b[3]}} </td>
+                                                <td class="little"> {{b[2]}} </td>
+                                                % if b[3] == 'Automatica':
+                                                  <td class="table-success"> {{b[3]}} </td>
+                                                % elif b[3] == 'Manual':
+                                                  <td class="table-warning"> {{b[3]}} </td>
+                                                % else:
+                                                  <td> {{b[3]}} </td>
+                                                % end
                                                 <td> {{b[4]}} </td>
                                             </tr>
                                             % end
