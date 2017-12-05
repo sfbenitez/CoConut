@@ -50,7 +50,7 @@
                         <h3 class="text-themecolor">Usuario: {{ user_name }}</h3>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="#" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Logout </a>
+                        <a href="/logout" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Logout </a>
                     </div>
                 </div>
                 <!--

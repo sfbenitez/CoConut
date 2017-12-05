@@ -97,6 +97,11 @@ def insertbackup():
  functions.database_insert(sql_insert, v_user, v_password)
  redirect('/backups')
 
+@route('/logout')
+ def logout():
+  functions.delete()
+  redirect('/')
+
 # Static files
 @route('/static/<filepath:path>')
 def server_static(filepath):

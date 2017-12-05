@@ -21,7 +21,8 @@ def test_connection(sql_query, user, password):
     cur.close()
   return resultado
  except Exception, e:
-  return template('views/login.tpl')
+  redirect('/')
+
 
 def selectall(sql_query, v_user, v_password):
  cur = None
@@ -101,12 +102,16 @@ def miniavatar(v_user, v_password):
 
 
 def set(key,value):
-	s = request.environ.get('beaker.session')
-	s[key]=value
+ s = request.environ.get('beaker.session')
+ s[key]=value
 
 def get(key):
-	s = request.environ.get('beaker.session')
-	if key in s:
-		return s[key]
-	else:
-		return ""
+ s = request.environ.get('beaker.session')
+ if key in s:
+  return s[key]
+ else:
+  return ""
+
+def delete():
+ s = request.environ.get('beaker.session')
+ s.delete()
