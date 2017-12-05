@@ -38,10 +38,11 @@ def dashboard():
  v_user = functions.get('s_user')
  v_password = functions.get('s_password')
  #sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
- sql_select = "select * from users where user_user = '%s';" %(v_user)
+ # select host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY') from backups join hosts on host_ip = backup_host order by backup_date limit 5;
+ sql_select = "select user_name from users where user_user = '%s';" %(v_user)
  campos=functions.database_select(sql_select, v_user, v_password)
  gravatar_url = functions.miniavatar(v_user,v_password)
- return template('views/index.tpl', user_user=campos[0], user_name=campos[1], user_urlimage=gravatar_url)
+ return template('views/index.tpl', user_user=v_user, user_name=campos[0], user_urlimage=gravatar_url)
 
 # Profile path
 @route('/profile')
@@ -71,9 +72,9 @@ def backups():
  # #    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
   else:
  #  if v_fromdate <= v_todate:
-   sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between to_date('%s','YYYY-MM-DD') and to_date('%s','YYYY-MM-DD') and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
+   sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
  else:
-  sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between to_date('%s','YYYY-MM-DD') and to_date('%s','YYYY-MM-DD') and backup_host = (select host_ip from hostsowners where user_user = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
+  sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hostsowners where user_user = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
  #  else:
  # sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
  campos=functions.selectall(sql_select, v_user, v_password)
