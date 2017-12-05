@@ -18,7 +18,7 @@ def test_connection(sql_query, user, password):
    return false
   finally:
    if cur is not None:
-   cur.close()
+    cur.close()
   return resultado
  except Exception, e:
   return template('views/login.tpl')
@@ -37,7 +37,7 @@ def selectall(sql_query, v_user, v_password):
    print sql_query
   finally:
    if cur is not None:
-   cur.close()
+    cur.close()
   return resultado
  except Exception, e:
   return template('views/login.tpl')
