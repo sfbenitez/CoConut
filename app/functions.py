@@ -105,17 +105,18 @@ def miniavatar(v_user, v_password):
 		return "http://www.charliejsanchez.com/wp-content/uploads/2017/12/default.jpg"
 
 
-def set(key,value):
- s = request.environ.get('beaker.session')
+def set(key, value):
+ # session = environ['beaker.session']
+ s = request.environ['beaker.session']
  s[key]=value
 
 def get(key):
- s = request.environ.get('beaker.session')
+ s = request.environ['beaker.session']
  if key in s:
   return s[key]
  else:
-  return ""
+  abort(401, "Sorry, acces denied.")
 
 def delete():
- s = request.environ.get('beaker.session')
+ s = request.environ['beaker.session']
  s.delete()
