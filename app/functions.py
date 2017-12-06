@@ -13,7 +13,7 @@ def test_connection(sql_query, user, password):
  try:
   cur = connect.cursor()
   cur.execute(sql_query)
-  resultado = cur.fetchall()
+  resultado = cur.fetchone()
  except:
   return false
  finally:

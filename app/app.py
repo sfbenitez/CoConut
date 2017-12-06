@@ -24,25 +24,29 @@ def login():
  # Request variables
  v_user = request.forms.get('user')
  v_password = request.forms.get('password')
- sql_query = "SELECT user_user FROM users WHERE user_user = '%s'" %(v_user)
- if functions.test_connection(sql_query, v_user, v_password):
+ sql_query = "SELECT user_user, user_name FROM users WHERE user_user = '%s'" %(v_user)
+ datosusuario = functions.test_connection(sql_query, v_user, v_password)
+ if datosusuario is not None:
   functions.set('s_user',v_user)
   functions.set('s_password',v_password)
+  functions.set('s_name', datosusuario[1])
   redirect('/dashboard')
  else:
-  return template('views/logout.tpl')
+  return template('views/login.tpl')
 
 # Main page
 @route('/dashboard')
 def dashboard():
  v_user = functions.get('s_user')
  v_password = functions.get('s_password')
- #sql_select="select count(host_name), backup_user from hosts, backups where host_ip = backup_host and backup_user = '%s' group by backup_user;" %(user)
- # select host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY') from backups join hosts on host_ip = backup_host order by backup_date limit 5;
- sql_select = "select user_name from users where user_user = '%s';" %(v_user)
- campos=functions.database_select(sql_select, v_user, v_password)
+ v_name = functions.get('s_name')
+ selectbackup="select backup_host, host_name, backup_action from backups join hosts on host_ip = backup_host where backup_user = '%s' order by backup_date limit 5;" %(v_user)
+ selectbackupusers="select backup_host, host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY') from backups join hosts on host_ip = backup_host order by backup_date limit 5;"
+ # sql_select = "select user_name from users where user_user = '%s';" %(v_user)
+ backups=functions.selectall(selectbackup, v_user, v_password)
+ backupsusers=functions.selectall(selectbackupusers, v_user, v_password)
  gravatar_url = functions.miniavatar(v_user,v_password)
- return template('views/index.tpl', user_user=v_user, user_name=campos[0], user_urlimage=gravatar_url)
+ return template('views/index.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, backups=backups, backupsusers=backupsusers)
 
 # Profile path
 @route('/profile')
@@ -67,16 +71,11 @@ def backups():
  if v_host == "" or v_host == None:
   if v_fromdate == None:
    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
- #  sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s' and backup_date between '%s' and '%s';" %(v_user, v_fromdate, v_todate)
- # #  else:
- # #    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'YYYY-MM-DD HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
   else:
  #  if v_fromdate <= v_todate:
    sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
  else:
   sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hostsowners where user_user = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
- #  else:
- # sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
  campos=functions.selectall(sql_select, v_user, v_password)
  gravatar_url = functions.miniavatar(v_user,v_password)
  return template('views/backups.tpl', backups=campos, user_user=v_user, user_urlimage=gravatar_url)

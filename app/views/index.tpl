@@ -108,25 +108,28 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div>
-                                        <h4 class="card-title"><span class="lstick"></span>Projects of the Month</h4></div>
+                                        <h4 class="card-title"><span class="lstick"></span>Últimas copias realizadas</h4></div>
                                 </div>
                                 <div class="table-responsive m-t-20">
                                     <table class="table vm no-th-brd no-wrap pro-of-month">
                                         <thead>
                                             <tr>
-                                                <th colspan="2">Assigned</th>
-                                                <th>Name</th>
-                                                <th>Priority</th>
+                                                <th colspan="2">Hostname</th>
+                                                <th>Usuario</th>
+                                                <th>Fecha</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            % for h in backupsusers:
                                             <tr>
                                                 <td style="width:50px;"><span class="round"><img src={{user_urlimage}} alt="user" width="50"></span></td>
                                                 <td>
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
-                                                <td>Elite Admin</td>
-                                                <td>Low</td>
+                                                    <h6>{{h[1]}}</h6><small class="text-muted">{{h[0]}}</small></td>
+                                                <td>{{h[2]}}</td>
+                                                <td>{{h[3]}}</td>
                                             </tr>
+                                            % end
+                                            <!--
                                             <tr class="active">
                                                 <td><span class="round"><img src="static/assets/images/users/2.jpg" alt="user" width="50"></span></td>
                                                 <td>
@@ -154,7 +157,7 @@
                                                     <h6>Micheal Doe</h6><small class="text-muted">Content Writer</small></td>
                                                 <td>Helping Hands</td>
                                                 <td>High</td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -166,46 +169,60 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <h4 class="card-title"><span class="lstick"></span>My Contact</h4>
+                                    <h4 class="card-title"><span class="lstick"></span>Tus últimas copias realizadas:</h4>
                                 </div>
                                 <div class="message-box contact-box">
                                     <div class="message-widget contact-widget">
-                                        <!-- Message -->
+                                        <!--
                                         <a href="#">
                                             <div class="user-img"> <img src="static/assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">info@wrappixel.com</span></div>
                                         </a>
-                                        <!-- Message -->
+                                      -->
+                                      <div class="table-responsive m-t-20">
+                                        <table class="table vm no-th-brd no-wrap pro-of-month">
+                                        % for h in backups:
+                                        <tr>
+                                          <td>{{h[0]}}</td>
+                                          <td>{{h[1]}}</td>
+                                          <td>{{h[2]}}</td>
+                                        </tr>
+                                        % end
+                                        </table>
+                                    </div>
+
+                                        <!-- Message
                                         <a href="#">
                                             <div class="user-img"> <img src="static/assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Sonu Nigam</h5> <span class="mail-desc">pamela1987@gmail.com</span></div>
                                         </a>
-                                        <!-- Message -->
+                                         Message
                                         <a href="#">
                                             <div class="user-img"> <span class="round">A</span> <span class="profile-status away pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Arijit Sinh</h5> <span class="mail-desc">cruise1298.fiplip@gmail.com</span></div>
                                         </a>
-                                        <!-- Message -->
+                                         Message
                                         <a href="#">
                                             <div class="user-img"> <img src="static/assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">kat@gmail.com</span></div>
                                         </a>
-                                        <!-- Message -->
+                                         Message
                                         <a href="#">
                                             <div class="user-img"> <img src="static/assets/images/users/5.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Andrew</h5> <span class="mail-desc">and@gmail.com</span></div>
                                         </a>
-                                        <!-- Message -->
+                                         Message
                                         <a href="#">
                                             <div class="user-img"> <img src="static/assets/images/users/6.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Jonathan Jones</h5> <span class="mail-desc">jj@gmail.com</span></div>
                                         </a>
+                                      -->
                                     </div>
                                 </div>
                             </div>
