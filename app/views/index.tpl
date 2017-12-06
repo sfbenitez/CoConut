@@ -171,7 +171,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <h4 class="card-title"><span class="lstick"></span>Tus últimas copias realizadas:</h4>
+                                    <h4 class="card-title"><span class="lstick"></span>Numero de Backups Por Host</h4>
                                 </div>
                                 <div class="message-box contact-box">
                                     <div class="message-widget contact-widget">
@@ -182,6 +182,22 @@
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">info@wrappixel.com</span></div>
                                         </a>
                                       -->
+                                      <h4> Mickey </h3>
+                                      <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                      <br>
+                                      <h4> Minnie </h3>
+                                      <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                      <br>
+                                      <h4> Donald </h3>
+                                      <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                      </div>
+                                      <!--
                                       <div class="table-responsive m-t-20">
                                         <table class="table vm no-th-brd no-wrap pro-of-month">
                                         % for h in backups:
@@ -192,7 +208,7 @@
                                         </tr>
                                         % end
                                         </table>
-                                    </div>
+                                    </div>-->
 
                                         <!-- Message
                                         <a href="#">
@@ -228,6 +244,27 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Autos & Manuals -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <h4 class="card-title"><span class="lstick"></span>Estadisticas Modo</h4>
+                                    </div>
+                                    <div class="message-box contact-box">
+                                        <div class="message-widget contact-widget">
+                                          <h4> Automaticas </h3>
+                                          <div class="progress">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <br>
+                                          <h4> Manuales </h3>
+                                          <div class="progress">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
