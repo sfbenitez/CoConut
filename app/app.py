@@ -22,9 +22,9 @@ def index():
 @route('/login', method='POST')
 def login():
  # Request variables
- v_user = functions.get('s_user')
- v_password = functions.get('s_password')
- if v_user == "":
+ v_user = request.forms.get('user')
+ v_password = request.forms.get('password')
+ if v_user == None:
   abort(401, "Sorry, access denied.")
  else:
   sql_query = "SELECT user_user, user_name FROM users WHERE user_user = '%s'" %(v_user)
@@ -35,7 +35,7 @@ def login():
    functions.set('s_name', datosusuario[1])
    redirect('/dashboard')
   else:
-   return template('views/login.tpl')
+   abort(401, "Sorry, access denied.")
 
 # Main page
 @route('/dashboard')

@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from bottle import request, redirect, template
+from bottle import request, redirect, template, abort
 from beaker.middleware import SessionMiddleware
 import urllib, hashlib
 
@@ -23,7 +23,7 @@ def test_connection(sql_query, user, password):
     redirect('/')
   return resultado
  except Exception, e:
-  redirect('/')
+  abort(401, "Sorry, acces denied.")
 
 
 def selectall(sql_query, v_user, v_password):
