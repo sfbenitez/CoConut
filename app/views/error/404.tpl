@@ -14,10 +14,10 @@
 
 <body>
 	<div class="main">
-		<form action="/login" method="post">
-    		<h1><span>CoConut</span> <lable> Login </lable> </h1>
+		<form action="/">
+    		<h1><span>404!</span> <lable>No encontrado!</lable> </h1>
   			<div class="inset">
-	  			<p>
+	  			<!--<p>
 	    		 <label for="user">USER NAME</label>
    	 			<input type="text" placeholder="nombre.apellido" name="user" required/>
 				</p>
@@ -25,7 +25,7 @@
 				    <label for="password">PASSWORD</label>
 				    <input type="password" placeholder="password" name="password" required/>
   				</p>
-          <!--
+
 				  <p>
 				    <input type="checkbox" name="remember" id="remember">
 				    <label for="remember">Agree to Continue</label>
@@ -35,7 +35,7 @@
 
 			  <p class="p-container">
 			    <!--<span><a href="#">Forgot password ?</a></span>-->
-			    <input type="submit" value="Login">
+			    <input type="submit" value="Volver">
 			  </p>
 		</form>
 	</div>

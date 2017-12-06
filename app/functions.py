@@ -7,23 +7,23 @@ import urllib, hashlib
 def test_connection(sql_query, user, password):
  cur = None
  connstring = 'dbname=db_backup host=172.22.200.110 user=%s password=%s' %(user, password)
- # try:
- connect = psycopg2.connect(connstring)
- print sql_query
  try:
-  cur = connect.cursor()
-  cur.execute(sql_query)
-  resultado = cur.fetchone()
- except:
-  return false
- finally:
-  if cur is not None:
-   cur.close()
-  else:
-   redirect('/')
- return resultado
- # except Exception, e:
- #     redirect('/')
+  connect = psycopg2.connect(connstring)
+  print sql_query
+  try:
+   cur = connect.cursor()
+   cur.execute(sql_query)
+   resultado = cur.fetchone()
+  except:
+   return false
+  finally:
+   if cur is not None:
+    cur.close()
+   else:
+    redirect('/')
+  return resultado
+ except Exception, e:
+  redirect('/')
 
 
 def selectall(sql_query, v_user, v_password):

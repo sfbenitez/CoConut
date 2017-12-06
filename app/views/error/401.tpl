@@ -2,8 +2,8 @@
 <head>
 		<meta charset="utf-8">
     <!-- Custom CSS -->
-		<link rel="icon" type="image/png" sizes="16x16" href="../static/assets/images/favicon.png">
-		<title>CoConut</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/assets/images/favicon.png">
+    <title>CoConut</title>
     <link href="static/css/screen.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!--<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -14,10 +14,10 @@
 
 <body>
 	<div class="main">
-		<form action="/login" method="post">
-    		<h1><span>CoConut</span> <lable> Login </lable> </h1>
+		<form action="/">
+    		<h1><span>401!</span> <lable>No autorizado!</lable> </h1>
   			<div class="inset">
-	  			<p>
+	  			<!--<p>
 	    		 <label for="user">USER NAME</label>
    	 			<input type="text" placeholder="nombre.apellido" name="user" required/>
 				</p>
@@ -25,7 +25,7 @@
 				    <label for="password">PASSWORD</label>
 				    <input type="password" placeholder="password" name="password" required/>
   				</p>
-          <!--
+
 				  <p>
 				    <input type="checkbox" name="remember" id="remember">
 				    <label for="remember">Agree to Continue</label>
@@ -35,7 +35,7 @@
 
 			  <p class="p-container">
 			    <!--<span><a href="#">Forgot password ?</a></span>-->
-			    <input type="submit" value="Login">
+			    <input type="submit" value="Volver">
 			  </p>
 		</form>
 	</div>
