@@ -4,7 +4,7 @@
     <!-- Custom CSS -->
 		<link rel="icon" type="image/png" sizes="16x16" href="../static/assets/images/favicon.png">
 		<title>CoConut</title>
-    <link href="static/css/screen.css" rel="stylesheet">
+    <link href="/static/css/screen.css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!--<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!--webfonts-->
