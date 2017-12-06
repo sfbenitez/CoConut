@@ -1,7 +1,6 @@
 
 import os
 from bottle import route,run,get,template,request, static_file, response, redirect, app, debug, abort, error
-import bottle_session
 import psycopg2
 import functions
 import urllib, hashlib
