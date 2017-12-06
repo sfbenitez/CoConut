@@ -122,11 +122,13 @@
                                         <tbody>
                                             % for h in backupsusers:
                                             <tr>
-                                                <td style="width:50px;"><span class="round"><img src={{user_urlimage}} alt="user" width="50"></span></td>
+                                                <td style="width:50px;"><span class="round"><img src=static/assets/images/{{h[1]}}.jpg alt="user" width="50"></span></td>
                                                 <td>
-                                                    <h6>{{h[1]}}</h6><small class="text-muted">{{h[0]}}</small></td>
+                                                    <h6>{{h[1]}}</h6><small class="text-muted">{{h[0]}}</small>
+                                                </td>
                                                 <td>{{h[2]}}</td>
-                                                <td>{{h[3]}}</td>
+                                                <td>
+                                                  <h5>{{h[3]}}</h5><small class="text-muted">{{h[4]}}</small></td>
                                             </tr>
                                             % end
                                             <!--

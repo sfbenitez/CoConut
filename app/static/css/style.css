@@ -328,7 +328,8 @@ html body .vt {
   vertical-align: top; }
 
 html body .vm {
-  vertical-align: middle; }
+  vertical-align: middle;
+  text-align: center;}
 
 html body .vb {
   vertical-align: bottom; }
@@ -1699,10 +1700,12 @@ Table td vertical middle
 *******************/
 .vm.table td,
 .vm.table th {
-  vertical-align: middle; }
+  vertical-align: middle;
+  text-align: center;}
 
 .no-th-brd.table th {
-  border: 0px; }
+  border: 0px;
+  font-weight: 800;}
 
 .table.no-border tbody td {
   border: 0px; }

@@ -46,7 +46,7 @@ def dashboard():
  else:
   v_name = functions.get('s_name')
   selectbackup="select backup_host, host_name, backup_action from backups join hosts on host_ip = backup_host where backup_user = '%s' order by backup_date limit 3;" %(v_user)
-  selectbackupusers="select backup_host, host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY') from backups join hosts on host_ip = backup_host order by backup_date limit 5;"
+  selectbackupusers="select backup_host, host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY'), to_char(backup_date,'HH24:MI') from backups join hosts on host_ip = backup_host order by backup_date desc limit 5;"
   # sql_select = "select user_name from users where user_user = '%s';" %(v_user)
   backups=functions.selectall(selectbackup, v_user, v_password)
   backupsusers=functions.selectall(selectbackupusers, v_user, v_password)
