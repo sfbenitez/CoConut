@@ -148,7 +148,7 @@ def stats():
   manual=int((p_totalbackupsmanual[0] * 100) / total)
   automatica=int((p_totalbackupsautomatica[0] * 100) / total)
   gravatar_url = functions.miniavatar(v_user,v_password)
-  return template('views/stats.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, total=total, mickeys=mickeys, minnies=minnies, donalds=donalds, manual=manual, automatica=automatica)
+  return template('views/stats.tpl', user_user=v_user, user_urlimage=gravatar_url, total=total, mickeys=mickeys, minnies=minnies, donalds=donalds, manual=manual, automatica=automatica)
 
 # Do logout
 @route('/logout')
