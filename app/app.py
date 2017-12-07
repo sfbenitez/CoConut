@@ -50,10 +50,26 @@ def dashboard():
   # sql_select = "select user_name from users where user_user = '%s';" %(v_user)
   #backups=functions.selectall(selectbackup, v_user, v_password)
   backupsusers=functions.selectall(selectbackupusers, v_user, v_password)
-  totalbackups="select count(*) from backups;"
+  totalbackups="select count(backup_date) from backups;"
+  totalbackupsmanual="select count(backup_date) from backups where backup_mode = 'Manual';"
+  totalbackupsautomatica="select count(backup_date) from backups where backup_mode = 'Automatica';"
+  totalbackupsmickey="select count(backup_date) from backups where backup_host in (select distinct host_ip from hosts where host_name = 'Mickey');"
+  totalbackupsminnie="select count(backup_date) from backups where backup_host in (select distinct host_ip from hosts where host_name = 'Minnie');"
+  totalbackupsdonald="select count(backup_date) from backups where backup_host in (select distinct host_ip from hosts where host_name = 'Donald');"
   p_totalbackups=functions.database_select(totalbackups, v_user, v_password)
+  p_totalbackupsmanual=functions.database_select(totalbackupsmanual, v_user, v_password)
+  p_totalbackupsautomatica=functions.database_select(totalbackupsautomatica, v_user, v_password)
+  p_totalbackupsmickey=functions.database_select(totalbackupsmickey, v_user, v_password)
+  p_totalbackupsminnie=functions.database_select(totalbackupsminnie, v_user, v_password)
+  p_totalbackupsdonald=functions.database_select(totalbackupsdonald, v_user, v_password)
+  total=int(p_totalbackups[0])
+  mickeys=int((p_totalbackupsmickey[0] * 100) / total)
+  minnies=int((p_totalbackupsminnie[0] * 100) / total)
+  donalds=int((p_totalbackupsdonald[0] * 100) / total)
+  manual=int((p_totalbackupsmanual[0] * 100) / total)
+  automatica=int((p_totalbackupsautomatica[0] * 100) / total)
   gravatar_url = functions.miniavatar(v_user,v_password)
-  return template('views/index.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, backupsusers=backupsusers, total=p_totalbackups)
+  return template('views/index.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, backupsusers=backupsusers, total=total, mickeys=mickeys, minnies=minnies, donalds=donalds, manual=manual, automatica=automatica)
 
 # Profile path
 @route('/profile')
