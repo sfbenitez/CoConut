@@ -476,8 +476,22 @@ Background Colors
 .bg-warning {
     background-color: #ffc107 !important; }
 
-.bg-minnie {
-  background-color: #d97bae !important; }
+.bg-Minnie {
+  background-color: #d288be !important; }
+
+.bg-Mickey {
+  background-color: #ef5350 !important; }
+
+.bg-Donald {
+  background-color: #334cc3 !important; }
+
+.bg-Manual {
+  background-color: #d48330 !important; )
+}
+
+.bg-Automatica {
+  background-color: #46bf98 !important; )
+}
 
 .bg-danger {
   background-color: #ef5350 !important; }

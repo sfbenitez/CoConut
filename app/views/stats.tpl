@@ -44,24 +44,18 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <h4 class="card-title"><span class="lstick"></span>Numero de Backups Por Host - Total:{{total}}</h4>
+                                    <h4 class="card-title"><span class="lstick"></span>Numero total de Backups - {{total}}</h4>
                                 </div>
                                 <div class="message-box contact-box">
                                     <div class="message-widget contact-widget">
-                                      <h4> Mickey </h4>
+                                      % for n in names:
+                                      % cont = int(n[1] * 100 / total)
+                                      <h4> {{n[0]}} -  {{n[1]}}</h4>
                                       <div class="progress">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: {{mickeys}}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-{{n[0]}}" role="progressbar" style="width: {{cont}}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                       <br>
-                                      <h4> Minnie </h4>
-                                      <div class="progress">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-minnie" role="progressbar" style="width: {{minnies}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                      </div>
-                                      <br>
-                                      <h4> Donald </h4>
-                                      <div class="progress">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{donalds}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                      </div>
+                                      % end
                                       </div>
                                     </div>
                                 </div>
@@ -76,16 +70,15 @@
                                     </div>
                                     <div class="message-box contact-box">
                                         <div class="message-widget contact-widget">
-                                          <h4> Automaticas </h3>
-                                          <div class="progress">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{automatica}}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                          </div>
-                                          <br>
-                                          <h4> Manuales </h3>
-                                          <div class="progress">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: {{manual}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                          </div>
-                                          </div>
+                                          % for m in modes:
+                                          % cont = int(m[1] * 100 / total)
+                                              <h4> {{m[0]}} - {{m[1]}}</h4>
+                                                <div class="progress">
+                                                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-{{m[0]}}" role="progressbar" style="width: {{cont}}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <br>
+                                            % end
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
