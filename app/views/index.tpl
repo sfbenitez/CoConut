@@ -87,21 +87,21 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <h4 class="card-title"><span class="lstick"></span>Numero de Backups Por Host</h4>
+                                    <h4 class="card-title"><span class="lstick"></span>Numero de Backups Por Host - Total:</h4>
                                 </div>
                                 <div class="message-box contact-box">
                                     <div class="message-widget contact-widget">
-                                      <h4> Mickey </h3>
+                                      <h4> Mickey </h4>
                                       <div class="progress">
                                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                       <br>
-                                      <h4> Minnie </h3>
+                                      <h4> Minnie </h4>
                                       <div class="progress">
                                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-minnie" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
                                       <br>
-                                      <h4> Donald </h3>
+                                      <h4> Donald </h4>
                                       <div class="progress">
                                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                       </div>
@@ -133,12 +133,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-          </div>
+
+
             <!-- footer -->
             % include('footer.tpl')
             <!-- End footer -->
-
+            </div>
+          </div>
         </div>
         <!-- ============================================================== -->
     </div>

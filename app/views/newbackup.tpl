@@ -115,23 +115,25 @@
                             <div class="card-body">
                                 <form action="/insert" class="form-horizontal form-material" method="post">
                                     <div class="form-group">
-                                        <label class="col-md-12">Etiqueta</label>
+                                        <label class="col-md-12">Label</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Etiquetame ..." class="form-control form-control-line" name="label">
+                                            <input type="text" placeholder="Etiquetame ..." class="form-control form-control-line" name="label" required>
                                         </div>
                                     </div>
                                       <div class="form-group">
-                                        <label for="exampleSelect1">Host</label>
+                                        <label class="col-md-12" for="exampleSelect1">Host</label>
+                                        <div class="col-md-12">
                                         <select class="form-control" id="exampleSelect1" name="ip">
                                           % for h in hosts:
-                                            <option>{{h[0]}}</option>
+                                            <option>{{ h[0] }}</option>
                                           % end
                                         </select>
                                       </div>
+                                      </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Descripcion</label>
+                                        <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
-                                            <textarea placeholder="¿Alguna observacion?" rows="5" class="form-control form-control-line" name="desc" maxlength="80"></textarea>
+                                            <textarea placeholder="¿Alguna observacion?" rows="3" class="form-control form-control-line" name="desc" maxlength="80" required></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

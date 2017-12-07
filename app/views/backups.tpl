@@ -118,10 +118,10 @@
                           <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="host">
                           <!-- From -->
                           <label class="mr-sm-2 mb-0" for="date1">From: </label>
-                          <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2017-12-20" id="date1" name="date1">
+                          <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2017-12-01" id="date1" name="date1">
                           <!-- To -->
                           <label class="mr-sm-2 mb-0" for="date2">To: </label>
-                          <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2017-12-20" id="date2" name="date2">
+                          <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2018-03-30" id="date2" name="date2">
                           <!-- Button -->
                           <button type="submit" class="btn btn-default mt-2 mt-sm-0">Search</button>
                         </form>

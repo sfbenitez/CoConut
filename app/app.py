@@ -8,7 +8,7 @@ from beaker.middleware import SessionMiddleware
 
 session_opts = {
     'session.type': 'memory',
-    'session.cookie_expires': 600,
+    'session.cookie_expires': 1200,
     'session.auto': True
 }
 app = SessionMiddleware(app(), session_opts)
@@ -45,13 +45,15 @@ def dashboard():
   abort(401, "Sorry, access denied.")
  else:
   v_name = functions.get('s_name')
-  selectbackup="select backup_host, host_name, backup_action from backups join hosts on host_ip = backup_host where backup_user = '%s' order by backup_date limit 3;" %(v_user)
+  #selectbackup="select backup_host, host_name, backup_action from backups join hosts on host_ip = backup_host where backup_user = '%s' order by backup_date limit 3;" %(v_user)
   selectbackupusers="select backup_host, host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY'), to_char(backup_date,'HH24:MI') from backups join hosts on host_ip = backup_host order by backup_date desc limit 5;"
   # sql_select = "select user_name from users where user_user = '%s';" %(v_user)
-  backups=functions.selectall(selectbackup, v_user, v_password)
+  #backups=functions.selectall(selectbackup, v_user, v_password)
   backupsusers=functions.selectall(selectbackupusers, v_user, v_password)
+  totalbackups="select count(*) from backups;"
+  p_totalbackups=functions.database_select(totalbackups, v_user, v_password)
   gravatar_url = functions.miniavatar(v_user,v_password)
-  return template('views/index.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, backups=backups, backupsusers=backupsusers)
+  return template('views/index.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, backupsusers=backupsusers, total=p_totalbackups)
 
 # Profile path
 @route('/profile')
@@ -82,12 +84,12 @@ def backups():
   print v_host
   if v_host == "" or v_host == None:
    if v_fromdate == None:
-    sql_select="SELECT backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_check FROM BACKUPS WHERE backup_user='%s'" %(v_user)
+    sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
    else:
  #  if v_fromdate <= v_todate:
-    sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
+    sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
   else:
-   sql_select="select backup_host, backup_label, backup_description, backup_action, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hostsowners where user_user = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
+   sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hosts where host_owner = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
   campos=functions.selectall(sql_select, v_user, v_password)
   gravatar_url = functions.miniavatar(v_user,v_password)
   return template('views/backups.tpl', backups=campos, user_user=v_user, user_urlimage=gravatar_url)
@@ -102,7 +104,7 @@ def newbackup():
  else:
   v_user = functions.get('s_user')
   v_password = functions.get('s_password')
-  sql_select="select host_ip, host_name from hosts where host_ip in (select host_ip from hostsowners where user_user = '%s');" %(v_user)
+  sql_select="select host_ip from hosts where host_owner  = '%s';" %(v_user)
   campos=functions.selectall(sql_select, v_user, v_password)
   gravatar_url = functions.miniavatar(v_user,v_password)
   return template('views/newbackup.tpl', user_user=v_user, hosts=campos, user_urlimage=gravatar_url)
@@ -118,7 +120,7 @@ def insertbackup():
   v_label = request.forms.get('label')
   v_ip = request.forms.get('ip')
   v_desc = request.forms.get('desc')
-  sql_insert="insert into backups (backup_user, backup_host, backup_label, backup_description, backup_action) values ('%s','%s','%s','%s','%s');" %(v_user, v_ip, v_label, v_desc, 'Manual')
+  sql_insert="insert into backups (backup_user, backup_host, backup_label, backup_description, backup_mode) values ('%s','%s','%s','%s','%s');" %(v_user, v_ip, v_label, v_desc, 'Manual')
   functions.database_insert(sql_insert, v_user, v_password)
   redirect('/backups')
 
