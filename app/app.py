@@ -22,10 +22,10 @@ def index():
 def login():
  # Request variables
  v_user = request.forms.get('user')
- v_password = request.forms.get('password')
  if v_user == None:
   abort(401, "Sorry, access denied.")
  else:
+  v_password = request.forms.get('password')
   sql_query = "SELECT user_user, user_name FROM users WHERE user_user = '%s'" %(v_user)
   datosusuario = functions.test_connection(sql_query, v_user, v_password)
   if datosusuario is not None:
@@ -40,10 +40,10 @@ def login():
 @route('/dashboard')
 def dashboard():
  v_user = functions.get('s_user')
- v_password = functions.get('s_password')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
+  v_password = functions.get('s_password')
   v_name = functions.get('s_name')
   #selectbackup="select backup_host, host_name, backup_action from backups join hosts on host_ip = backup_host where backup_user = '%s' order by backup_date limit 3;" %(v_user)
   selectbackupusers="select backup_host, host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY'), to_char(backup_date,'HH24:MI') from backups join hosts on host_ip = backup_host order by backup_date desc limit 5;"
@@ -75,10 +75,10 @@ def dashboard():
 @route('/profile')
 def profile():
  v_user = functions.get('s_user')
- v_password = functions.get('s_password')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
+  v_password = functions.get('s_password')
   sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(v_user)
   campos=functions.database_select(sql_select, v_user, v_password)
   gravatar_url = functions.miniavatar(v_user,v_password)
@@ -89,10 +89,10 @@ def profile():
 @route('/backups', method=['get','post'])
 def backups():
  v_user = functions.get('s_user')
- v_password = functions.get('s_password')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
+  v_password = functions.get('s_password')
   v_fromdate = request.forms.get('date1')
   print v_fromdate # 2017-12-20
   v_todate = request.forms.get('date2')
@@ -114,7 +114,6 @@ def backups():
 @route('/newbackup')
 def newbackup():
  v_user = functions.get('s_user')
- v_password = functions.get('s_password')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
@@ -129,10 +128,10 @@ def newbackup():
 @route('/insert', method='POST')
 def insertbackup():
  v_user = functions.get('s_user')
- v_password = functions.get('s_password')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
+  v_password = functions.get('s_password')
   v_label = request.forms.get('label')
   v_ip = request.forms.get('ip')
   v_desc = request.forms.get('desc')
