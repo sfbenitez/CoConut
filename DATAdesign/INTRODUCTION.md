@@ -56,8 +56,28 @@ CREATE DATABASE  db_backup;
 ALTER DATABASE db_backup OWNER TO admin;
 ~~~
 
-### Iniciar sesion con el usuaro admin y crear las tablas:
+### Iniciar sesion con el usuario admin y crear las tablas
 
 ~~~
 postgres@server:~$ psql -U admin db_backup
+~~~
+
+### Crear un nuevo rol y darle los privilegios sobre las tablas
+
+~~~
+CREATE ROLE pupilgroup;
+GRANT SELECT,UPDATE,INSERT ON ALL TABLES IN SCHEMA public TO pupilgroup;
+~~~
+
+
+### Example new user
+
+~~~
+CREATE USER "carlos.sanchez" PASSWORD 'usuario' IN ROLE pupilgroup;
+~~~
+
+### Para revocar los permisos:
+
+~~~
+REVOKE DELETE ON ALL TABLES IN SCHEMA public FROM pupilgroup;
 ~~~
