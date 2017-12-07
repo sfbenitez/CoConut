@@ -26,7 +26,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/dashboard">
                         <!-- Logo icon --><b>
                             <img src="../static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                         </b>
@@ -64,7 +64,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-dark" href="#"><img src="{{user_urlimage}}" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link waves-effect waves-dark" href="/profile"><img src="{{user_urlimage}}" alt="user" class="profile-pic" /></a>
                         </li>
                     </ul>
                 </div>

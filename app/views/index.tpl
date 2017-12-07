@@ -30,7 +30,7 @@
                     </ul>
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-dark" href="#"><img src="{{user_urlimage}}" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link waves-effect waves-dark" href="/profile"><img src="{{user_urlimage}}" alt="user" class="profile-pic" /></a>
                         </li>
                     </ul>
                 </div>
