@@ -13,7 +13,7 @@ session_opts = {
 }
 
 # Comment this line if you are using mod_wsgi & apache
-coconut = SessionMiddleware(app(), session_opts)
+app = SessionMiddleware(app(), session_opts)
 
 # Login page
 @route('/')
