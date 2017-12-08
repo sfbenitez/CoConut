@@ -107,7 +107,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Label</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Tag me ..." class="form-control form-control-line" name="label" required>
+                                            <input type="text" placeholder="Tag me ..." class="form-control form-control-line" name="label" maxlength="40" required>
                                         </div>
                                     </div>
                                       <div class="form-group">
@@ -128,7 +128,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">A&ntilde;adir Backup</button>
+                                            <button class="btn btn-success">Add Backup</button>
                                         </div>
                                     </div>
                                 </form>
