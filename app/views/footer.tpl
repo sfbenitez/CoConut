@@ -1,1 +1,1 @@
-<footer class="footer"> © 2017 CoConut by Ferrete & Charlie </footer>
+<footer class="footer"><span class="badge badge-info">© 2017 CoConut By Ferrete & Charlie </span></footer>

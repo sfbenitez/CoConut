@@ -93,20 +93,10 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Add New Backup</h3>
+                        <h3 class="text-themecolor">Add New Backup Manually</h3>
                     </div>
-                    <!--
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminpro/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
-                    -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
+
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
@@ -117,13 +107,13 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Label</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Etiquetame ..." class="form-control form-control-line" name="label" required>
+                                            <input type="text" placeholder="Tag me ..." class="form-control form-control-line" name="label" required>
                                         </div>
                                     </div>
                                       <div class="form-group">
                                         <label class="col-md-12" for="exampleSelect1">Host</label>
                                         <div class="col-md-12">
-                                        <select class="form-control" id="exampleSelect1" name="ip">
+                                        <select class="form-control" name="ip">
                                           % for h in hosts:
                                             <option>{{ h[0] }}</option>
                                           % end
@@ -133,7 +123,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
-                                            <textarea placeholder="¿Alguna observacion?" rows="3" class="form-control form-control-line" name="desc" maxlength="80" required></textarea>
+                                            <textarea placeholder="Any important information?" rows="3" class="form-control form-control-line" name="desc" maxlength="80" required></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -143,6 +133,23 @@
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Help -->
+                    <div class="col-lg-4 col-xlg-9 col-md-5">
+                      <div class="card" style="max-width: 20rem;">
+                        <div class="card-header">
+                        The backup will be marked as "manual"
+                        </div>
+                        <div class="card-body">
+                        <h4 class="card-title">Label</h4>
+                        <p class="card-text">Write a meaningful label to identify the backup in the future.</p>
+                        <h4 class="card-title">Host</h4>
+                        <p class="card-text">As its name suggests, it is the machine that has been backed up</p>
+                        <h4 class="card-title">Description</h4>
+                        <p class="card-text">It details the important or significant changes that have been made in the backup.</p>
+                        </div>
                         </div>
                     </div>
                     <!-- Column -->

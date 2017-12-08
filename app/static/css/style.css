@@ -127,7 +127,7 @@ h4 {
 h5 {
   line-height: 18px;
   font-size: 16px;
-  font-weight: 400; }
+  font-weight: 800; }
 
 h6 {
   line-height: 16px;
@@ -429,7 +429,7 @@ Text Colors
 
 .text-muted {
   color: #99abb4 !important;
-  font-weight: 600;}
+  font-weight: 800;}
 
 .text-warning {
   color: #ffb22b !important; }
@@ -676,7 +676,7 @@ Labels
   background-color: #398bf7; }
 
 .badge-primary {
-  background-color: #745af2; }
+  background-color: ##007bff; }
 
 .badge-warning {
   background-color: #ffb22b;
@@ -1024,7 +1024,7 @@ File: scss
 .card {
   margin-bottom: 30px; }
   .card .card-subtitle {
-    font-weight: 300;
+    font-weight: 800;
     margin-bottom: 15px;
     color: #99abb4; }
   .card .card-title {
@@ -2059,7 +2059,7 @@ Buttons
 .btn-success,
 .btn-success.disabled {
   background: #2cabe3;
-  border: 1px solid #06d79c;
+  border: 1px solid #36abe3;
   -webkit-box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
   box-shadow: 0 2px 2px 0 rgba(40, 190, 189, 0.14), 0 3px 1px -2px rgba(40, 190, 189, 0.2), 0 1px 5px 0 rgba(40, 190, 189, 0.12);
   -webkit-transition: 0.2s ease-in;

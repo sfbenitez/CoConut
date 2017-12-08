@@ -45,13 +45,17 @@ def dashboard():
  else:
   v_password = functions.get('s_password')
   v_name = functions.get('s_name')
-  #selectbackup="select backup_host, host_name, backup_action from backups join hosts on host_ip = backup_host where backup_user = '%s' order by backup_date limit 3;" %(v_user)
   selectbackupusers="select backup_host, host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY'), to_char(backup_date,'HH24:MI') from backups join hosts on host_ip = backup_host order by backup_date desc limit 5;"
-  # sql_select = "select user_name from users where user_user = '%s';" %(v_user)
-  #backups=functions.selectall(selectbackup, v_user, v_password)
   backupsusers=functions.selectall(selectbackupusers, v_user, v_password)
+  totalbackups="select count(backup_date) from backups;"
+  sqlselectmode="select backup_mode, count(backup_host) from backups group by backup_mode;"
+  sqlselecthosts="select h.host_name, count(b.backup_host) from backups b, hosts h where h.host_ip = b.backup_host group by h.host_name;"
+  p_totalbackups=functions.database_select(totalbackups, v_user, v_password)
+  backupsmode=functions.selectall(sqlselectmode, v_user, v_password)
+  backupshost=functions.selectall(sqlselecthosts, v_user, v_password)
+  total=int(p_totalbackups[0])
   gravatar_url = functions.miniavatar(v_user,v_password)
-  return template('views/index.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, backupsusers=backupsusers)
+  return template('views/index.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, backupsusers=backupsusers, total=total, modes=backupsmode, names=backupshost)
 
 # Profile path
 @route('/profile')
