@@ -6,7 +6,6 @@ Aplicación para llevar un seguimiento de las copias de seguridad realizadas por
 
 ![](http://www.charliejsanchez.com/wp-content/uploads/2017/12/example.jpg)
 
-### Autores
 Created by @sfbenitez & @carlosjsanch3z
 
 ## Despliegue en un servidor Apache2 con módulo WSGI.
