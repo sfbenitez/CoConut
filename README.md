@@ -13,7 +13,7 @@ Created by @sfbenitez & @carlosjsanch3z
 
 ### Creación del servidor virtual
 
-´´´ [apache]
+``` [apache]
 <VirtualHost *>
     ServerName coconut.ferrete.gonzalonazareno.org
     DocumentRoot /var/www/coconut
@@ -29,4 +29,4 @@ Created by @sfbenitez & @carlosjsanch3z
    </Directory>
 
 </VirtualHost>
-´´´
+```
