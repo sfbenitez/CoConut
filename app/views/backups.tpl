@@ -154,13 +154,13 @@
                                                 <td class="labeling"> {{b[1]}} </td>
                                                 <td class="little"> {{b[2]}} </td>
                                                 % if b[3] == 'Automatica':
-                                                  <td class="table-success"> {{b[3]}} </td>
+                                                  <td><span class="badge badge-success">{{b[3]}}</span></td>
                                                 % elif b[3] == 'Manual':
-                                                  <td class="table-warning"> {{b[3]}} </td>
+                                                  <td><span class="badge badge-warning">{{b[3]}}</span></td>
                                                 % else:
                                                   <td> {{b[3]}} </td>
                                                 % end
-                                                <td> {{b[4]}} </td>
+                                                <td class="bolding"> {{b[4]}} </td>
                                             </tr>
                                             % end
                                         </tbody>
@@ -170,7 +170,7 @@
                                           <th></th>
                                           <th></th>
                                           <th></th>
-                                          <th class="bolding">Total: {{contador}}</th>
+                                          <th class="bolding"><span class="badge badge-dark">Total: {{contador}}</span></th>
                                           </tr>
                                           </tfoot>
                                     </table>
