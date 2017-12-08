@@ -1,4 +1,4 @@
-import sys, os, bottle, app
+import sys, os, bottle, coconut
 import beaker.middleware
 
 sys.path = ['/var/www/coconut/'] + sys.path

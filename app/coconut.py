@@ -11,24 +11,29 @@ session_opts = {
     'session.cookie_expires': 1200,
     'session.auto': True
 }
-app = SessionMiddleware(app(), session_opts)
+
+# Comment this line if you are using mod_wsgi & apache
+coconut = SessionMiddleware(app(), session_opts)
 
 # Login page
 @route('/')
 def index():
 	return template('views/login.tpl')
 
+# Do login
 @route('/login', method='POST')
 def login():
- # Request variables
+ # Request variables for login form
  v_user = request.forms.get('user')
  if v_user == None:
   abort(401, "Sorry, access denied.")
  else:
   v_password = request.forms.get('password')
   sql_query = "SELECT user_user, user_name FROM users WHERE user_user = '%s'" %(v_user)
+  # Test if v_user can query his own data
   datosusuario = functions.test_connection(sql_query, v_user, v_password)
   if datosusuario is not None:
+   # Set session
    functions.set('s_user',v_user)
    functions.set('s_password',v_password)
    functions.set('s_name', datosusuario[1])
@@ -39,14 +44,18 @@ def login():
 # Main page
 @route('/dashboard')
 def dashboard():
+ # Check session
  v_user = functions.get('s_user')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
+  # Request session
   v_password = functions.get('s_password')
   v_name = functions.get('s_name')
+  # Last 5 backups query
   selectbackupusers="select backup_host, host_name, backup_user, to_char(backup_date, 'DD-MM-YYYY'), to_char(backup_date,'HH24:MI') from backups join hosts on host_ip = backup_host order by backup_date desc limit 5;"
   backupsusers=functions.selectall(selectbackupusers, v_user, v_password)
+  # Stats querys & functions
   totalbackups="select count(backup_date) from backups;"
   sqlselectmode="select backup_mode, count(backup_host) from backups group by backup_mode;"
   sqlselecthosts="select h.host_name, count(b.backup_host) from backups b, hosts h where h.host_ip = b.backup_host group by h.host_name;"
@@ -54,19 +63,24 @@ def dashboard():
   backupsmode=functions.selectall(sqlselectmode, v_user, v_password)
   backupshost=functions.selectall(sqlselecthosts, v_user, v_password)
   total=int(p_totalbackups[0])
+  # Gravatar function
   gravatar_url = functions.miniavatar(v_user,v_password)
   return template('views/index.tpl', user_user=v_user, user_name=v_name, user_urlimage=gravatar_url, backupsusers=backupsusers, total=total, modes=backupsmode, names=backupshost)
 
 # Profile path
 @route('/profile')
 def profile():
+ # Check session
  v_user = functions.get('s_user')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
+  # Request session
   v_password = functions.get('s_password')
+  # User data query
   sql_select="SELECT * FROM USERS WHERE user_user='%s'" %(v_user)
   campos=functions.database_select(sql_select, v_user, v_password)
+  # Gravatar function
   gravatar_url = functions.miniavatar(v_user,v_password)
   return template('views/profile.tpl',  user_user=campos[0], user_name=campos[1], user_email=campos[2], user_date=campos[3], user_role=campos[4], user_urlimage=gravatar_url)
 
@@ -74,53 +88,63 @@ def profile():
 # Backups list
 @route('/backups', method=['get','post'])
 def backups():
+ # Check session
  v_user = functions.get('s_user')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
+  # Request session
   v_password = functions.get('s_password')
+  # Request vars from filter forms
   v_fromdate = request.forms.get('date1')
-  print v_fromdate # 2017-12-20
   v_todate = request.forms.get('date2')
   v_host = request.forms.get('host')
-  print v_host
+  # Filter querys
   if v_host == "" or v_host == None:
    if v_fromdate == None:
     sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
    else:
- #  if v_fromdate <= v_todate:
     sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
   else:
    sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hosts where host_owner = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
+  # Filter function
   campos=functions.selectall(sql_select, v_user, v_password)
+  # Gravatar function
   gravatar_url = functions.miniavatar(v_user,v_password)
   return template('views/backups.tpl', backups=campos, user_user=v_user, user_urlimage=gravatar_url)
 
 # New Backup forms
 @route('/newbackup')
 def newbackup():
+ # Check session
  v_user = functions.get('s_user')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
-  v_user = functions.get('s_user')
+  # Request session
   v_password = functions.get('s_password')
+  # Host list query & function
   sql_select="select host_ip from hosts where host_owner  = '%s';" %(v_user)
   campos=functions.selectall(sql_select, v_user, v_password)
+  # Gravatar function
   gravatar_url = functions.miniavatar(v_user,v_password)
   return template('views/newbackup.tpl', user_user=v_user, hosts=campos, user_urlimage=gravatar_url)
 
 # Insert new backups
 @route('/insert', method='POST')
 def insertbackup():
+ # Check session
  v_user = functions.get('s_user')
  if v_user == "":
   abort(401, "Sorry, access denied.")
  else:
+  # Request session
   v_password = functions.get('s_password')
+  # Request vars from newbackup form
   v_label = request.forms.get('label')
   v_ip = request.forms.get('ip')
   v_desc = request.forms.get('desc')
+  # Insert new backup query & function
   sql_insert="insert into backups (backup_user, backup_host, backup_label, backup_description, backup_mode) values ('%s','%s','%s','%s','%s');" %(v_user, v_ip, v_label, v_desc, 'Manual')
   functions.database_insert(sql_insert, v_user, v_password)
   redirect('/backups')
@@ -162,5 +186,6 @@ def error404(error):
 def error401(error):
     return template('views/error/401.tpl')
 
+# Comment this if you are using mod_wsgi & apache
 debug(True)
 run(app=app, host = '0.0.0.0', port = 8080)
