@@ -35,7 +35,7 @@
 
 			  <p class="p-container">
 			    <!--<span><a href="#">Forgot password ?</a></span>-->
-					<input type="button" value="Volver" onclick="history.back()">
+					<input type="button" value="Volver" onclick="location.href='/'">
 			  </p>
 		</form>
 	</div>
