@@ -20,6 +20,28 @@ app = SessionMiddleware(app(), session_opts)
 def index():
 	return template('views/login.tpl')
 
+@route('/newuser')
+def newuser():
+	return template('views/register.tpl')
+
+@route('/register', method='POST')
+def register():
+ v_user = request.forms.get('user')
+ usuarioexiste = functions.test_userexist(v_user)
+ if usuarioexiste == None:
+  v_password = request.forms.get('password')
+  v_name = request.forms.get('name')
+  v_mail = request.forms.get('mail')
+  v_date = request.forms.get('date')
+  v_ipmickey = request.forms.get('ipmickey')
+  v_ipminnie = request.forms.get('ipminnie')
+  v_ipdonald = request.forms.get('ipdonald')
+  # Create and insert new user
+  functions.addnewuser(v_user, v_password, v_name, v_mail, v_date, v_ipdonald, v_ipmickey, v_ipminnie)
+ else:
+  redirect('/')
+
+
 # Do login
 @route('/login', method='POST')
 def login():

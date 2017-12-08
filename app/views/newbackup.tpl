@@ -140,7 +140,7 @@
                     <div class="col-lg-4 col-xlg-9 col-md-5">
                       <div class="card" style="max-width: 20rem;">
                         <div class="card-header">
-                        The backup will be marked as "manual"
+                        The backup will be marked as "Manual"
                         </div>
                         <div class="card-body">
                         <h4 class="card-title">Label</h4>

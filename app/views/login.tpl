@@ -35,6 +35,7 @@
 
 			  <p class="p-container">
 			    <!--<span><a href="#">Forgot password ?</a></span>-->
+					<input type="button" value="New user" onclick="location.href='/newuser'">
 			    <input type="submit" value="Login">
 			  </p>
 		</form>
