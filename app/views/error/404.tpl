@@ -15,12 +15,14 @@
 <body>
 	<div class="main">
 		<form action="/">
-    		<h1><span>404!</span> <lable>No encontrado!</lable> </h1>
+    		<h1><span>¡Error 404!</span> <lable>¡P&aacute;gina no encontrada!</lable> </h1>
   			<div class="inset">
-	  			<!--<p>
-	    		 <label for="user">USER NAME</label>
-   	 			<input type="text" placeholder="nombre.apellido" name="user" required/>
-				</p>
+	  			<p>
+	    		 <label for="user">Algo no ha ido bien, regresa por favor.</label>
+					 </p>
+					 <!--
+					<input type="text" placeholder="nombre.apellido" name="user" required/>
+
   				<p>
 				    <label for="password">PASSWORD</label>
 				    <input type="password" placeholder="password" name="password" required/>

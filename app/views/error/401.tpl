@@ -15,12 +15,12 @@
 <body>
 	<div class="main">
 		<form action="/">
-    		<h1><span>401!</span> <lable>No autorizado!</lable> </h1>
+    		<h1><span>¡Error 401!</span> <lable>¡No estás autorizado!</lable> </h1>
   			<div class="inset">
-	  			<!--<p>
-	    		 <label for="user">USER NAME</label>
-   	 			<input type="text" placeholder="nombre.apellido" name="user" required/>
-				</p>
+	  			<p>
+	    		 <label for="user">Inicia sesión por favor.</label>
+   	 			<!--<input type="text" placeholder="nombre.apellido" name="user" required/>
+
   				<p>
 				    <label for="password">PASSWORD</label>
 				    <input type="password" placeholder="password" name="password" required/>
@@ -31,6 +31,7 @@
 				    <label for="remember">Agree to Continue</label>
 				  </p>
           -->
+					 </p>
  			 </div>
 
 			  <p class="p-container">
