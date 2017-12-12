@@ -112,7 +112,37 @@
                     <div class="col-lg-12">
                       <div class="col-lg-12">
                         <!-- Sarch by Host -->
+                        % if str(get('rol')) in '1':
                         <form action="/backups" class="form-inline" method="post">
+                          <!-- Host -->
+                          <label class="mr-sm-2 mb-0" for="first_name">Host</label>
+                          <select class="form-control" name="hostname">
+                            <option></option>
+                            <option>Mickey</option>
+                            <option>Minnie</option>
+                            <option>Donald</option>
+                          </select>
+                          <!-- From -->
+                          <label class="mr-sm-2 mb-0" for="date1">From: </label>
+                          <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2017-12-01" id="date1" name="date1">
+                          <!-- To -->
+                          <label class="mr-sm-2 mb-0" for="date2">To: </label>
+                          <input class="form-control mr-sm-2 mb-2 mb-sm-0" type="date" value="2018-03-30" id="date2" name="date2">
+                          <!-- Student -->
+                          <label class="mr-sm-2 mb-0" for="students">Alumno</label>
+                          <select class="form-control" name="students">
+                            <option></option>
+
+                            % for i in students:
+                             <option>{{i[0]}}</option>
+                            % end
+
+                          </select>
+                          <!-- Button -->
+                          <button type="submit" class="btn btn-default mt-2 mt-sm-0">Search</button>
+                        </form>
+                        % else:
+                          <form action="/backups" class="form-inline" method="post">
                           <!-- Host -->
                           <label class="mr-sm-2 mb-0" for="first_name">Host</label>
                           <input type="text" class="form-control mr-sm-2 mb-2 mb-sm-0" id="first_name" name="host">
@@ -125,6 +155,7 @@
                           <!-- Button -->
                           <button type="submit" class="btn btn-default mt-2 mt-sm-0">Search</button>
                         </form>
+                        % end
                       </div>
                         <!-- Show Hosts -->
                         <div class="card">
@@ -150,7 +181,13 @@
                                               % for b in backups:
                                               % contador += 1
                                               <tr>
-                                                <td class="bolding"> {{b[0]}} </td>
+                                                % if str(get('rol')) in '1':
+                                                  <td>
+                                                      <h6>{{b[6]}}</h6><small class="text-muted">{{b[5]}}</small>
+                                                  </td>
+                                                % else:
+                                                  <td class="bolding"> {{b[0]}} </td>
+                                                % end
                                                 <td class="labeling"> {{b[1]}} </td>
                                                 <td class="little"> {{b[2]}} </td>
                                                 % if b[3] == 'Automatica':

@@ -122,9 +122,9 @@ def addnewuser(v_user, v_password, v_name, v_mail, v_date, v_ipdonald, v_ipmicke
  newuser_insertmaquina(v_user, v_ipmickey, 'Mickey')
  newuser_insertmaquina(v_user, v_ipminnie, 'Minnie')
  newuser_insertmaquina(v_user, v_ipdonald, 'Donald')
- set('s_user',v_user)
- set('s_password',v_password)
- set('s_name', v_name)
+ setcoockie('s_user',v_user)
+ setcoockie('s_password',v_password)
+ setcoockie('s_name', v_name)
  redirect('/dashboard')
 
 def newuser_createrole(v_user, v_password):
@@ -213,18 +213,18 @@ def miniavatar(v_user, v_password):
   return "http://www.charliejsanchez.com/wp-content/uploads/2017/12/default.jpg"
 
 
-def set(key, value):
+def setcoockie(key, value):
  # session = environ['beaker.session']
  s = request.environ['beaker.session']
  s[key]=value
 
-def get(key):
+def getcoockie(key):
  s = request.environ['beaker.session']
  if key in s:
   return s[key]
  else:
   abort(401, "Sorry, acces denied.")
 
-def delete():
+def deletecoockie():
  s = request.environ['beaker.session']
  s.delete()
