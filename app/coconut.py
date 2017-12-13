@@ -134,7 +134,7 @@ def backups():
    selectallstudents="select user_name from users;"
    students=functions.selectall(selectallstudents, v_user, v_password)
    if v_student == "" or v_student == None:
-    if v_hostname == "" or v_hostname == None:
+    if v_hostname == "All" or v_hostname == None:
      if v_fromdate == None:
       sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name FROM BACKUPS JOIN HOSTS ON host_ip = backup_host;"
      else:
@@ -142,7 +142,7 @@ def backups():
     else:
      sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name FROM backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host in (select host_ip from hosts where host_name = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_hostname)
    else:
-    if v_hostname == "" or v_hostname == None:
+    if v_hostname == "All" or v_hostname == None:
      if v_fromdate == None:
       sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name FROM BACKUPS JOIN HOSTS ON host_ip = backup_host where backup_user = '%s';" %(v_student)
      else:
