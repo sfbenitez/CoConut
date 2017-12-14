@@ -12,7 +12,7 @@
                 % else:
                 <li> <a class="waves-effect waves-dark" href="/newbackup" aria-expanded="false"><i class="mdi mdi-database-plus"></i><span class="hide-menu">New Backup</span></a></li>
                 % end
-                <!--<li> <a class="waves-effect waves-dark" href="/stats" aria-expanded="false"><i class="mdi mdi-vector-polyline"></i><span class="hide-menu">Stats</span></a></li>-->
+               <li> <a class="waves-effect waves-dark" href="/stats" aria-expanded="false"><i class="mdi mdi-vector-polyline"></i><span class="hide-menu">Stats BD Server</span></a></li>
                 <!--<li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank</span></a></li>-->
                 <!--<li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">404</span></a></li>-->
             </ul>

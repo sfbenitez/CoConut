@@ -39,51 +39,34 @@
         % include('sidebar.tpl')
         <div class="page-wrapper">
             <div class="container-fluid">
-                    <!-- contact -->
-                    <div class="col-lg-6 col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <h4 class="card-title"><span class="lstick"></span>Numero total de Backups - {{total}}</h4>
-                                </div>
-                                <div class="message-box contact-box">
-                                    <div class="message-widget contact-widget">
-                                      % for n in names:
-                                      % cont = int(n[1] * 100 / total)
-                                      <h4> {{n[0]}} -  {{n[1]}}</h4>
-                                      <div class="progress">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-{{n[0]}}" role="progressbar" style="width: {{cont}}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                      </div>
-                                      <br>
-                                      % end
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
+              <div class="row">
+                <!-- Last 5 copyers -->
+                  <div class="col-lg-6 col-md-12">
+                      <div class="card">
+                        <iframe src="http://172.22.200.157:3000/dashboard-solo/db/coconut-db?refresh=30s&orgId=1&panelId=4&from=1513239207714&to=1513250007714" width="620" height="200" frameborder="0"></iframe>
+                      </div>
+                  </div>
+                  <!-- Hosts -->
+                  <div class="col-lg-6 col-md-12">
+                      <!-- Hosts -->
+                      <div class="card">
+                        <iframe src="http://172.22.200.157:3000/dashboard-solo/db/coconut-db?refresh=30s&orgId=1&panelId=6&from=1513239577654&to=1513250377654" width="620" height="200" frameborder="0"></iframe>
                         </div>
-                        <div class="col-lg-6 col-md-12">
-                                                      <!-- Autos & Manuals -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <h4 class="card-title"><span class="lstick"></span>Estadisticas Modo</h4>
-                                    </div>
-                                    <div class="message-box contact-box">
-                                        <div class="message-widget contact-widget">
-                                          % for m in modes:
-                                          % cont = int(m[1] * 100 / total)
-                                              <h4> {{m[0]}} - {{m[1]}}</h4>
-                                                <div class="progress">
-                                                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-{{m[0]}}" role="progressbar" style="width: {{cont}}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <br>
-                                            % end
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                    </div>
-                </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                      <!-- Hosts -->
+                      <div class="card">
+                        <iframe src="http://172.22.200.157:3000/dashboard-solo/db/coconut-db?refresh=30s&orgId=1&panelId=7&from=1513239686476&to=1513250486476" width="620" height="200" frameborder="0"></iframe>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                      <!-- Hosts -->
+                      <div class="card">
+                        <iframe src="http://172.22.200.157:3000/dashboard-solo/db/coconut-db?refresh=30s&orgId=1&panelId=11&from=1513239797529&to=1513250597529" width="620" height="200" frameborder="0"></iframe>
+                      </div>
+                  </div>
+              </div>
+            </div>
 
 
             <!-- footer -->
