@@ -20,3 +20,12 @@
 <script src="../static/assets/plugins/c3-master/c3.min.js"></script>
 <!-- Chart JS -->
 <script src="../static/js/dashboard.js"></script>
+
+<script src="../static/css/datatable/js/jquery.min.js"></script>
+<script src="../static/css/datatable/js/jquery.ui.custom.js"></script>
+<script src="../static/css/datatable/js/bootstrap.min.js"></script>
+<script src="../static/css/datatable/js/jquery.uniform.js"></script>
+<script src="../static/css/datatable/js/select2.min.js"></script>
+<script src="../static/css/datatable/js/jquery.dataTables.min.js"></script>
+<script src="../static/css/datatable/js/matrix.js"></script>
+<script src="../static/css/datatable/js/matrix.tables.js"></script>

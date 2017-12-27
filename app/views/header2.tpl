@@ -29,4 +29,17 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
+
+
+<link rel="stylesheet" href="../static/css/datatable/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../static/css/datatable/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="../static/css/datatable/css/uniform.css" />
+<link rel="stylesheet" href="../static/css/datatable/css/select2.css" />
+<link rel="stylesheet" href="../static/css/datatable/css/matrix-style.css" />
+<link rel="stylesheet" href="../static/css/datatable/css/matrix-media.css" />
+<link href="../static/css/datatable/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
 </head>

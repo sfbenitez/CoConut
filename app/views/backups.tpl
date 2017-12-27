@@ -131,7 +131,7 @@
                           <!-- Student -->
                           <label class="mr-sm-2 mb-0" for="students">Alumno</label>
                           <select class="form-control" name="students">
-                            <option></option>
+                            <option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
 
                             % for i in students:
                              <option>{{i[0]}}</option>
@@ -158,15 +158,13 @@
                         % end
                       </div>
                         <!-- Show Hosts -->
-                        <div class="card">
-                            <div class="card-body">
-                              <!--
-                                <h4 class="card-title">Basic Table</h4>
-                                <h6 class="card-subtitle">Add class <code>.table</code></h6>
-                              -->
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="thead-inverse">
+                        <div class="widget-box">
+                          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                            <h5>Backups List</h5>
+                          </div>
+                          <div class="widget-content nopadding">
+                            <table class="table table-bordered data-table">
+                                        <thead>
                                             <tr>
                                                 <th>Host</th>
                                                 <th>Label</th>
@@ -181,16 +179,16 @@
                                               % contador = 0
                                               % for b in backups:
                                               % contador += 1
-                                              <tr>
+                                              <tr class="gradeX">
                                                 % if str(get('rol')) in '1':
                                                   <td>
                                                       <h6>{{b[7]}}</h6><small class="text-muted">{{b[6]}}</small>
                                                   </td>
                                                 % else:
-                                                  <td class="bolding"> {{b[0]}} </td>
+                                                  <td > {{b[0]}} </td>
                                                 % end
-                                                <td class="labeling"> {{b[1]}} </td>
-                                                <td class="little"> {{b[2]}} </td>
+                                                <td > {{b[1]}} </td>
+                                                <td > {{b[2]}} </td>
                                                 % if b[3] == 'Automatica':
                                                   <td><span class="badge badge-success">{{b[3]}}</span></td>
                                                 % elif b[3] == 'Manual':
@@ -198,7 +196,7 @@
                                                 % else:
                                                   <td> {{b[3]}} </td>
                                                 % end
-                                                <td class="bolding"> {{b[4]}} </td>
+                                                <td> {{b[4]}} </td>
                                                 % if b[5] == '100':
                                                   <td><span class="badge badge-{{b[5]}}"> Client Fail </span></td>
                                                 % elif b[5] == '200':
@@ -211,15 +209,16 @@
                                             </tr>
                                             % end
                                         </tbody>
-                                        <tfoot>
+                                        <!-- <tfoot>
                                           <tr>
                                           <th></th>
                                           <th></th>
                                           <th></th>
                                           <th></th>
-                                          <th class="bolding"><span class="badge badge-dark">Total: {{contador}}</span></th>
+                                          <th></th>
+                                          <th><span >Total: {{contador}}</span></th>
                                           </tr>
-                                          </tfoot>
+                                          </tfoot> -->
                                     </table>
                                 </div>
                             </div>
@@ -236,7 +235,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            % include('footer.tpl')
+
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
