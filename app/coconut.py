@@ -136,19 +136,19 @@ def backups():
    if v_student == "" or v_student == None:
     if v_hostname == "All" or v_hostname == None:
      if v_fromdate == None:
-      sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status, host_owner, host_name FROM BACKUPS JOIN HOSTS ON host_ip = backup_host;"
+      sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name FROM BACKUPS JOIN HOSTS ON host_ip = backup_host;"
      else:
-      sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status, host_owner, host_name FROM backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' order by backup_date desc;" %(v_fromdate, v_todate)
+      sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name FROM backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' order by backup_date desc;" %(v_fromdate, v_todate)
     else:
-     sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status, host_owner, host_name FROM backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host in (select host_ip from hosts where host_name = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_hostname)
+     sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name FROM backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host in (select host_ip from hosts where host_name = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_hostname)
    else:
     if v_hostname == "All" or v_hostname == None:
      if v_fromdate == None:
-      sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status, host_owner, host_name FROM BACKUPS JOIN HOSTS ON host_ip = backup_host where backup_user = '%s';" %(v_student)
+      sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name FROM BACKUPS JOIN HOSTS ON host_ip = backup_host where backup_user = '%s';" %(v_student)
      else:
-      sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status, host_owner, host_name from backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = (select user_user from users where user_name = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_student)
+      sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name from backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = (select user_user from users where user_name = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_student)
     else:
-     sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status, host_owner, host_name from backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hosts where host_owner = (select user_user from users where user_name = '%s') and host_name = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_student, v_hostname)
+     sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), host_owner, host_name from backups JOIN HOSTS ON host_ip = backup_host where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hosts where host_owner = (select user_user from users where user_name = '%s') and host_name = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_student, v_hostname)
    campos = functions.selectall(sql_select, v_user, v_password)
    gravatar_url = functions.miniavatar(v_user,v_password)
    return template('views/backups.tpl', students=students, user_user=v_user, user_urlimage=gravatar_url, backups=campos, rol=v_role)
@@ -159,11 +159,11 @@ def backups():
    # Filter querys
    if v_host == "" or v_host == None:
     if v_fromdate == None:
-     sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status FROM BACKUPS WHERE backup_user='%s'" %(v_user)
+     sql_select="SELECT backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') FROM BACKUPS WHERE backup_user='%s'" %(v_user)
     else:
-     sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
+     sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_user = '%s' order by backup_date desc;" %(v_fromdate, v_todate, v_user)
    else:
-    sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS'), backup_status from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hosts where host_owner = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
+    sql_select="select backup_host, backup_label, backup_description, backup_mode, to_char(backup_date, 'DD-MM-YYYY HH24:MI:SS') from backups where backup_date between '%s 00:00:00' and '%s 23:59:59' and backup_host = (select host_ip from hosts where host_owner = '%s' and host_ip = '%s') order by backup_date desc;" %(v_fromdate, v_todate, v_user, v_host)
    # Filter function
    campos=functions.selectall(sql_select, v_user, v_password)
    # Gravatar function
@@ -215,8 +215,15 @@ def stats():
   abort(401, "Sorry, access denied.")
  else:
   v_password = functions.getcoockie('s_password')
+  totalbackups="select count(backup_date) from backups;"
+  sqlselectmode="select backup_mode, count(backup_host) from backups group by backup_mode;"
+  sqlselecthosts="select h.host_name, count(b.backup_host) from backups b, hosts h where h.host_ip = b.backup_host group by h.host_name;"
+  p_totalbackups=functions.database_select(totalbackups, v_user, v_password)
+  backupsmode=functions.selectall(sqlselectmode, v_user, v_password)
+  backupshost=functions.selectall(sqlselecthosts, v_user, v_password)
+  total=int(p_totalbackups[0])
   gravatar_url = functions.miniavatar(v_user,v_password)
-  return template('views/stats.tpl', user_user=v_user, user_urlimage=gravatar_url)
+  return template('views/stats.tpl', user_user=v_user, user_urlimage=gravatar_url, total=total, modes=backupsmode, names=backupshost)
 
 # Do logout
 @route('/logout')

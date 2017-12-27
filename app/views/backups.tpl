@@ -171,7 +171,6 @@
                                                 <th>Description</th>
                                                 <th>Mode</th>
                                                 <th>Date</th>
-                                                <th>Status</th>
                                             </tr>
                                         </thead>
 
@@ -182,7 +181,7 @@
                                               <tr class="gradeX">
                                                 % if str(get('rol')) in '1':
                                                   <td>
-                                                      <h6>{{b[7]}}</h6><small class="text-muted">{{b[6]}}</small>
+                                                      <h6>{{b[6]}}</h6><small class="text-muted">{{b[5]}}</small>
                                                   </td>
                                                 % else:
                                                   <td > {{b[0]}} </td>
@@ -196,16 +195,7 @@
                                                 % else:
                                                   <td> {{b[3]}} </td>
                                                 % end
-                                                <td> {{b[4]}} </td>
-                                                % if b[5] == '100':
-                                                  <td><span class="badge badge-{{b[5]}}"> Client Fail </span></td>
-                                                % elif b[5] == '200':
-                                                  <td><span class="badge badge-{{b[5]}}"> Correcto </span></td>
-                                                % elif b[5] == '400':
-                                                  <td><span class="badge badge-{{b[5]}}"> Connection Error </span></td>
-                                                % elif b[5] == '500':
-                                                  <td><span class="badge badge-{{b[5]}}"> Server Error </span></td>
-                                                % end
+                                                <td > {{b[4]}} </td>
                                             </tr>
                                             % end
                                         </tbody>

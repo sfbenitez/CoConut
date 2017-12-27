@@ -492,19 +492,8 @@ Background Colors
 .bg-Automatica {
   background-color: #46bf98 !important; )
 }
-.badge-100 {
-  background-color: #3f60ad;
-}
-.badge-200 {
-  background-color: #1aab1a;
-}
-.badge-400 {
-  background-color: #d24545;
-}
-.badge-500 {
-  background-color: #d08931;
-}
-.badge-danger {
+
+.bg-danger {
   background-color: #ef5350 !important; }
 
 html body .bg-megna {
