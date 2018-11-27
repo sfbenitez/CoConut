@@ -125,6 +125,7 @@ def addnewuser(v_user, v_password, v_name, v_mail, v_date, v_ipdonald, v_ipmicke
  setcoockie('s_user',v_user)
  setcoockie('s_password',v_password)
  setcoockie('s_name', v_name)
+ setcoockie('s_role', '2')
  redirect('/dashboard')
 
 def newuser_createrole(v_user, v_password):
